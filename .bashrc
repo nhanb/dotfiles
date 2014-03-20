@@ -24,6 +24,8 @@ export HISTSIZE=10000
 export HISTFILESIZE=${HISTSIZE}
 export HISTCONTROL=ignoreboth
 
+MYVIM=plugins  # only pull pure vimscript plugins
+
 # prompt
 PS1='[\u@\h \W]\$ '
 BROWSER=/usr/bin/xdg-open

@@ -9,9 +9,9 @@ if [ -f $HOME/dotfiles/globalrc ]; then
 fi
 
 export GAE_PATH="$HOME/google_appengine"
+export MYVIM="full"  # install all plugins, including the non-trivial ones too
 alias mountPhone='go-mtpfs /media/MyAndroid'
 alias unmountPhone='fusermount -u /media/MyAndroid'
-
 
 # Google App Engine (Python WTF!)
 alias gaecfg='python2 ~/google_appengine/appcfg.py --oauth2'
