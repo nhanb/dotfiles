@@ -1,0 +1,18 @@
+# My Personal Vim Config
+
+## Summary
+In my vim setup, I try to utilize functionalities that are offered in the
+latest versions (`colorcolumn=80` for example). It should work fine on both
+terminal vim and Gvim, although the `solarized` colorscheme only works properly
+if the terminal uses the this scheme as well.
+
+## Caveats
+- On first startup, run `:BundleInstall` to pull plugins.
+- Expect it to only work smoothly on Unix-like systems with Gvim 7.3 or newer.
+- The use of F-keys will be limited if you run vim on Gnome Terminal, since
+this terminal emulator maps F1 to its own Help window, and F11 to toggling
+fullscreen mode.
+- Tagbar only works if you have [exuberant ctags](http://ctags.sourceforge.net/)
+installed. For Ubuntu users, just run `sudo apt-get install exuberant-ctags`
+- To get C code complettion, install clang too: `sudo apt-get install clang`
+- If you're a Windows user, curse you bad luck, not me.

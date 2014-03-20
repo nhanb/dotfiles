@@ -1,0 +1,24 @@
+#!/usr/bin/env bash
+
+cd ~/open-source # where I clone git repos
+
+if [ "$1" = 'u' ] ; then
+    cd node
+    git pull
+    ./configure --prefix=$HOME/local
+    make install
+
+    cd ../npm
+    git pull
+    make install # or `make link` for bleeding edge
+else
+    git clone git://github.com/joyent/node.git
+    cd node
+    ./configure --prefix=$HOME/local
+    make install
+    cd ..
+ 
+    git clone git://github.com/isaacs/npm.git
+    cd npm
+    make install # or `make link` for bleeding edge
+fi

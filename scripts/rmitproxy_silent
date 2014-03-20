@@ -1,0 +1,126 @@
+#!/bin/bash
+
+# =============================================================================
+# If the computer is currently connected to RMIT's network then this
+# script will set the appropriate proxy environment variables, otherwise
+# it just unsets everything
+ 
+# For ubuntu users: edit info in the "Sensitive info" part, then:
+#
+#   sudo cp ~/dotfiles/scripts/rmitproxy_silent /etc/network/if-up.d/rmitproxy_silent
+#   sudo chmod 700 /etc/network/if-up.d/rmitproxy_silent
+#
+# to execute it every time your computer connects to a network :)
+
+# Inpired by:
+# http://askubuntu.com/questions/150210/how-do-i-set-systemwide-proxy-servers-in-xubuntu-lubuntu-or-ubuntu-studio/151047#151047
+# =============================================================================
+
+# RMIT's SSID and basic info
+ssid=RMITWPA
+host=proxy.rmit.edu.vn
+port=8080
+
+# Sensitive info - ENTER YOUR INFO HERE
+# =====================================
+user='enter_your_s_number_here'
+pass='your_rmit_account_password'
+sudopw='your_sudo_password'
+# =====================================
+
+# DON'T TOUCH ANYTHING BELOW unless you know what you're doing!
+
+# Check if this system has git
+git --version 2>&1 >/dev/null
+git_installed=$?
+
+rmitOn() {
+
+    # Standard environment variables
+
+    http_str=http://$user:$pass@$host:$port
+    https_str=https://$user:$pass@$host:$port
+
+    http=( http_proxy HTTP_PROXY FTP_PROXY ftp_proxy )
+    for envar in $http
+    do
+        export $envar=$http_str
+    done
+
+    https=( https_proxy HTTPS_PROXY )
+    for envar in $https
+    do
+        export $envar=$https_str
+    done
+
+    export no_proxy="localhost,127.0.0.1,localaddress,.localdomain.com"
+    export NO_PROXY="localhost,127.0.0.1,localaddress,.localdomain.com"
+
+    # Gnome proxy settings
+    gsettings set org.gnome.system.proxy.http host $host
+    gsettings set org.gnome.system.proxy.https host $host
+    gsettings set org.gnome.system.proxy mode 'manual'
+
+    # Hardcore stuff ahead - requiring sudo permission
+    # =====================================================================
+
+    # /etc/apt/apt.conf - If you ever want to install stuff while at RMIT
+    aptconf=`echo -e "Acquire::http::proxy \"$http_str\";\nAcquire::https::proxy \"$https_str\";"`
+    # Write apt.conf file content to temporary file then move it to its
+    # appropriate location. For some weird reason I can't write directly to
+    # a file in /etc/apt/
+    echo $aptconf > ~/tmp_apt_conf
+    echo $sudopw | sudo -S mv -f ~/tmp_apt_conf /etc/apt/apt.conf || true
+
+    # Git
+    if [ $git_installed -eq 0 ]; then
+        git config --global http.proxy "$http_str" || true
+        git config --global https.proxy "$https_str" || true
+        git config --global core.gitproxy '/bin/gitproxy'
+    fi
+
+}
+
+
+rmitOff() {
+
+    envars=( https_proxy HTTPS_PROXY http_proxy HTTP_PROXY FTP_PROXY ftp_proxy all_proxy ALL_PROXY)
+    for envar in $envars
+    do
+        export $envar=""
+    done
+
+    # Gnome proxy settings
+    gsettings set org.gnome.system.proxy.http host ""
+    gsettings set org.gnome.system.proxy.https host ""
+    gsettings set org.gnome.system.proxy mode 'none'
+
+    # Hardcore stuff ahead - requiring sudo permission
+    # =====================================================================
+
+    # Switch apt conf file
+    aptconf=""
+    # Write apt.conf file content to temporary file then move it to its
+    # appropriate location. For some weird reason I can't write directly to
+    # a file in /etc/apt/
+    echo $aptconf > ~/tmp_apt_conf
+    echo $sudopw | sudo -S mv -f ~/tmp_apt_conf /etc/apt/apt.conf || true
+
+    # Git
+    if [ $git_installed -eq 0 ]; then
+        git config --global http.proxy "" || true
+        git config --global https.proxy "" || true
+        git config --global core.gitproxy ''
+    fi
+
+}
+
+# If current network SSID is RMIT's then set up the proxy,
+# otherwise unset everything
+if [ `iwgetid -s | grep $ssid` ]; then
+    rmitOn
+    echo "Connected to '$ssid'. Proxy settings applied."
+else
+    rmitOff
+    echo "Not on '$ssid'. Proxy settings cleared."
+fi

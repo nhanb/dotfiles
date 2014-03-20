@@ -1,0 +1,17 @@
+#!/bin/bash
+
+######################################################
+# Watermark every file within current folder
+#
+# Usage: wtm <watermark_file_name>
+######################################################
+
+function wtm {
+
+for img in *; do
+    width=`identify -format "%[fx:w]" $img`
+    height=`identify -format "%[fx:h]" $img`
+    echo $width x $height
+done
+
+}

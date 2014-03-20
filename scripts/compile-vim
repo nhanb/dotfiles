@@ -1,0 +1,17 @@
+#!/bin/zsh
+
+cd ~/open-source/vim
+
+hg pull && hg update
+
+if [ "$1" = '64' ] ; then
+    WPCD=' --with-python-config-dir=/usr/lib/python2.7/config-x86_64-linux-gnu '
+else
+    WPCD=" "
+fi
+
+./configure --prefix=/home/nhanb/local --with-features=huge --enable-pythoninterp $WPCD --enable-gui=gnome2
+
+make && make install
+
+echo 'Remember to add ~/local/bin to your $PATH'

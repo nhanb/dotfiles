@@ -1,0 +1,29 @@
+#!/bin/bash
+
+# =======================
+# Toggle touchpad on/off
+# =======================
+
+# Installation:
+#   sudo ln -s ~/dotfiles/scripts/toggletouchpad /sbin/toggletouchpad  
+#   sudo chmod +x /sbin/toggletouchpad
+# then assign the command "toggletouchpad" to some hotkey. How to do this
+# depends on your desktop environment.
+
+# Inspired by
+# https://wiki.archlinux.org/index.php/Touchpad_Synaptics#Software_Toggle
+
+newState=$(synclient -l | grep -c 'TouchpadOff.*=.*0')
+synclient TouchpadOff=$newState
+
+# Show appropriate notification based on touchpad on/off status
+if [ "$newState" == "0" ]; then
+    state="ON"
+    msg="Be careful when typing :)"
+    icon="input-touchpad-symbolic"
+else
+    state="OFF"
+    msg="No more touchpad annoyances!"
+    icon="touchpad-disabled-symbolic"
+fi
+notify-send -i $icon "Touchpad $state" "$msg"

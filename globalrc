@@ -1,0 +1,61 @@
+# vim: set ft=sh:
+
+# DISCLAIMER: much of the stuff here has been shamelessly ripped off from
+# various default whatever-rc files on Ubuntu & Manjaro, plus a bunch of useful
+# blog posts around the interwebs. There, I said it!
+
+# Whatever comes below is supposed to work well on both bash and zsh.
+
+export TERM="xterm-256color"
+export EDITOR=vim  # vim rules emacs drools woo! (kidding...)
+
+# Add manually compiled binaries & homegrown scripts to PATH
+export PATH=$HOME/local/bin:$HOME/dotfiles/scripts:$PATH
+
+# Look ma, colors!
+[ -e "$HOME/.dircolors" ] && DIR_COLORS="$HOME/.dircolors"
+[ -e "$DIR_COLORS" ] || DIR_COLORS=""
+eval "`dircolors -b $DIR_COLORS`"
+
+# Make boring tools more awesome
+alias ls='ls --group-directories-first --time-style=+"%d.%m.%Y %H:%M" --color=auto -F'
+alias ll='ls -l --group-directories-first --time-style=+"%d.%m.%Y %H:%M" --color=auto -F'
+alias la='ls -la --group-directories-first --time-style=+"%d.%m.%Y %H:%M" --color=auto -F'
+alias grep='grep --color=tty -d skip'
+alias cp="cp -i"  # confirm before overwriting something
+alias df='df -h'  # human-readable sizes
+alias free='free -m'  # show sizes in MB
+
+# ex - archive extractor
+# usage: ex <file>
+ex ()
+{
+  if [ -f $1 ] ; then
+    case $1 in
+      *.tar.bz2)   tar xjvf $1   ;;
+      *.tar.gz)    tar xzvf $1   ;;
+      *.bz2)       bunzip2 $1   ;;
+      *.rar)       unrar x $1     ;;
+      *.gz)        gunzip $1    ;;
+      *.tar)       tar xvf $1    ;;
+      *.tbz2)      tar xvjf $1   ;;
+      *.tgz)       tar xvzf $1   ;;
+      *.zip)       unzip $1     ;;
+      *.Z)         uncompress $1;;
+      *.7z)        7z x $1      ;;
+      *)           echo "'$1' cannot be extracted via ex()" ;;
+    esac
+  else
+    echo "'$1' is not a valid file"
+  fi
+}
+
+# mkdir then cd into it
+function mkdircd () { mkdir -p "$@" && eval cd "\"\$$#\""; }
+
+# Moooooooooooar aliases!!
+alias gacm="git add . && git commit -m"
+alias gac="git add . && git commit "
+alias srmit="source ~/dotfiles/scripts/rmitproxy"
+alias svim="sudo -E $HOME/local/bin/vim"
+alias svnadd='svn status | grep "^\?" | awk "{print $2}" | xargs svn add'

@@ -1,0 +1,183 @@
+#!/usr/bin/env zsh
+
+# =============================================================================
+# If the computer is currently connected to RMIT's network then this
+# script will set the appropriate proxy environment variables, otherwise
+# it just unsets everything.
+#
+# Also includes special proxy configs for:
+# - git
+# - apt
+# - gsettings (which many programs, including Firefox, use)
+# 
+# Make sure this file is executable using this command:
+#       chmod +x rmitproxy_public.sh
+# 
+# For ubuntu users, put this script in
+#       /etc/network/if-up.d
+# to execute it every time your computer connects to a network :)
+# (but the environment variables will not be set system-wide so you have to
+# execute it every time you open a new terminal just to be sure)
+#
+# Inpired by:
+# http://askubuntu.com/questions/150210/how-do-i-set-systemwide-proxy-servers-in-xubuntu-lubuntu-or-ubuntu-studio/151047#151047
+# =============================================================================
+
+# =============================================================================
+# Sensitive info. Edit where needed.
+# =============================================================================
+
+# Your s-number here. Example: user="s3333333" (remember, no ` sign)
+user="`pass show rmit_user`"
+
+# Your RMIT password here. Change double quotes to single quotes if it
+# contains dangerous characters such as $
+pass="`pass show rmit_pass`"
+
+# Your Linux sudo password. Same rules as above
+sudopw="`pass show sudo`"
+
+# These probably won't change
+ssid=RMITWPA
+rhost=proxy.rmit.edu.vn
+rport=8080
+
+# =============================================================================
+# DO NOT TOUCH anything below unless you know what you're doing!
+# =============================================================================
+
+## Let root know which X display we're using. Without this, the
+## notification will not be displayed
+export DISPLAY=:0.0
+
+# Check if connected to wired (ethernet) RMIT network.
+isRmitWired=`ifconfig eth0 | grep 172.16.` # Ugly hack. TODO improve this.
+
+squidOn() {
+    str="include /etc/squid3/rmit.conf"
+    grep -q "$str" ~/.squid.conf || echo "$str">> ~/.squid.conf
+    echo $sudopw | sudo -S reload squid3
+    notify-send "RMIT for Squid"
+}
+
+squidOff() {
+    str="include \/etc\/squid3\/rmit.conf"
+    sed -i "/$str/d" ~/.squid.conf
+    echo $sudopw | sudo -S reload squid3
+    notify-send "Squid is home"
+}
+
+proxySetup() {
+
+    host=$1
+    port=$2
+
+    # Standard environment variables
+
+    http_str=http://$host:$port
+    https_str=https://$host:$port
+    no_str="localhost,127.0.0.1,localaddress,.localdomain.com"
+
+    http=( http_proxy HTTP_PROXY FTP_PROXY ftp_proxy )
+    for envar in $http
+    do
+        export $envar=$http_str
+    done
+
+    https=( https_proxy HTTPS_PROXY )
+    for envar in $https
+    do
+        export $envar=$https_str
+    done
+
+    export no_proxy=$no_str
+    export NO_PROXY=$no_str
+
+    # Gnome proxy settings
+    gsettings set org.gnome.system.proxy.http host $host
+    gsettings set org.gnome.system.proxy.https host $host
+    gsettings set org.gnome.system.proxy mode 'manual'
+
+    # Hardcore stuff ahead - requiring sudo permission
+    # =====================================================================
+    
+    # /etc/apt/apt.conf - If you ever want to install stuff while at RMIT
+    aptconf=$(echo -e "Acquire::http::proxy \"$http_str\";\nAcquire::https::proxy \"$https_str\";")
+    # Write apt.conf file content to temporary file then move it to its
+    # appropriate location. For some weird reason I can't write directly to
+    # a file in /etc/apt/
+    echo $aptconf > ~/tmp_apt_conf
+    echo $sudopw | sudo -S mv -f ~/tmp_apt_conf /etc/apt/apt.conf || true
+
+    # RMIT proxy info for Squid
+    squidStr="cache_peer $rhost parent $rport $rport no-query login=$user:$pass"
+    squidStr="$squidStr\nnever_direct allow all"
+    echo "$squidStr" > ~/.tmp_squid
+    sudo cp ~/.tmp_squid /etc/squid3/rmit.conf
+    rm ~/.tmp_squid
+
+    # Git
+    git config --global http.proxy "$http_str" || true
+    git config --global https.proxy "$https_str" || true
+    # Comment out the following line if you haven't got a specific gitproxy
+    # executable. I myself have a small script to pipe it through socat.
+    git config --global core.gitproxy '/bin/gitproxy'
+
+}
+
+squidSetup() {
+    proxySetup 127.0.0.1 3128
+    notify-send "Squid FTW!"
+}
+
+polipoSetup() {
+    proxySetup 127.0.0.1 8124
+    notify-send "Polipo is in da house!"
+}
+
+emptyProxy() {
+
+    envars=( https_proxy HTTPS_PROXY http_proxy HTTP_PROXY FTP_PROXY ftp_proxy all_proxy ALL_PROXY)
+    for envar in $envars
+    do
+        export $envar=""
+    done
+
+    # Gnome proxy settings
+    gsettings set org.gnome.system.proxy.http host ""
+    gsettings set org.gnome.system.proxy.https host ""
+    gsettings set org.gnome.system.proxy mode 'none'
+
+    # Hardcore stuff ahead - requiring sudo permission
+    # =====================================================================
+
+    # Switch apt conf file
+    aptconf=""
+    # Write apt.conf file content to temporary file then move it to its
+    # appropriate location. For some weird reason I can't write directly to
+    # a file in /etc/apt/
+    echo $aptconf > ~/tmp_apt_conf
+    echo $sudopw | sudo -S mv -f ~/tmp_apt_conf /etc/apt/apt.conf || true
+
+    # Git
+    git config --global http.proxy "" || true
+    git config --global https.proxy "" || true
+    git config --global core.gitproxy ''
+
+    notify-send "RMIT Mode Off"
+}
+
+# If one of these is true:
+#   - connected to a wired (ethernet) network that has RMIT's IP scheme
+#   - current network SSID is RMIT's
+# then set up the proxy, otherwise unset everything
+
+if [ "$1" = 'setup' ] ; then
+    squidSetup
+elif [ `iwgetid -s | grep Lyn` ] || [ `iwgetid -s | grep $ssid` ] || [ "$isRmitWired" ] ; then
+    squidOn
+    echo "Connected to RMIT network. Proxy settings applied."
+else
+    squidOff
+    echo "Not on '$ssid'. Proxy settings cleared."
+fi

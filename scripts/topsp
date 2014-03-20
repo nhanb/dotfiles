@@ -1,0 +1,95 @@
+#!/bin/bash
+
+#############################################################################
+# Convert and copy videos to your beloved PSP
+#
+# You need arista-transcoder to convert stuff. It's probably on your repo
+# already. If you're using Ubuntu:
+#   $ sudo add-apt-repository ppa:webupd8team/arista
+#   $ sudo apt-get update
+#   $ sudo apt-get install arista
+# Or you can download from the website: http://www.transcoder.org/downloads/
+# 
+# Usage:
+#   $ topsp infile outfile
+#   => for simple 1-file action
+#
+#   $ topsp -f
+#   => convert every file inside folder
+#
+#   $ topsp -f -m
+#   => convert every file inside folder AND move to your PSP
+#############################################################################
+
+# Path to your PSP's VIDEO folder. Edit this if necessary.
+pspPath="/media/$USER/disk/VIDEO"
+tmpPath="psp_tmp"
+
+# If doing batch operation
+if [ "$1" == "-f" ] ; then
+
+    # Replace all whitespace in file names with underscores (_)
+    find -name "* *" -type f | rename 's/ /_/g'
+
+    mkdir -p $tmpPath
+
+    # Double-quoted file names separated by spaces
+    # i.e. "File 1.mov" "File 2.avi"
+    inputs=""
+
+    # Loop through all files
+    for file in * ; do
+
+        # Only do stuff to files, not dirs
+        if [[ -f $file ]]; then 
+            noExtension="${file%.*}"
+            newFile="$tmpPath/$noExtension-playstation.mp4"
+
+            # If file already exists, skip this file
+            if [ -f "$newFile" ] ; then
+                echo "Found $newFile. Skipped."
+                continue
+            else
+                inputs="$inputs $file"
+                #arista-transcode -p PSP -d playstation "$file" -o "$newFile"
+            fi
+
+        fi
+    done
+
+    # Convert all files listed in $inputs
+    arista-transcode -p PSP -d playstation $inputs
+
+    # Move converted files to tmp folder for easier management
+    mv *-playstation.mp4 $tmpPath/
+
+    # Move all converted files to PSP's VIDEO folder
+    if [ "$2" == "-m" ] ; then
+
+        # Abort if PSP's not connected
+        if [ ! -d "$pspPath" ]; then
+            echo "Couldn't find $pspPath! Check if your PSP has been properly connected, restart your terminal emulator then try again."
+            echo "NOTE: your converted files can still be found in $tmpPath/"
+            exit
+        fi
+
+        # Go to tmp folder where converted videos are stored, move all of them
+        # to PSP's VIDEO folder
+        cd $tmpPath
+        for target in * ; do
+            mv "$target" "$pspPath/$target"
+            if [ "$?" != "0" ] ; then
+                echo "Something wrong happened while moving $target. Aborted."
+                exit # Stop immediately of something goes wrong while moving
+            fi
+        done
+
+        # Clean up tmp folder
+        cd ..
+        rm -rf $tmpPath
+    fi
+
+# If you simply wanna encode a file:
+else
+    arista-transcode -p PSP -d playstation "$1" -o "$2"
+fi
