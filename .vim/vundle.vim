@@ -34,20 +34,30 @@ nnoremap <leader>gm :Gmove<space>
 nnoremap <leader>gc :Gcommit<cr>
 nnoremap <leader>gd :Gdiff<cr>
 nnoremap <leader>gs :Gstatus<cr>
-" See who's to blame for some stupid code
 nnoremap <leader>gb :Gblame<cr>
+
 " Stage current file
 nnoremap <leader>ga :Gwrite<cr>
 nnoremap <leader>gw :Gwrite<cr>
-" Revert current file to last commit (gf ~ git fresh)
-nnoremap <leader>gf :Gread<cr>
-" Git remove. This is dangerous so give it 1 extra char to avoid mistyping
-nnoremap <leader>grm :Gremove<cr>
+
+" Revert current file to last commit
+nnoremap <leader>gr :Gread<cr>
+
+" Open git log in a new buffer
+nnoremap <leader>glt :Gtabedit! log<cr>
+nnoremap <leader>glp :Gtabedit! log --pretty=oneline<cr>
+nnoremap <leader>glg :Gtabedit! log --graph<cr>
+
+" Open git diff in a new buffer
+nnoremap <leader>gff :Gtabedit! diff<cr>
+nnoremap <leader>gfc :Gtabedit! diff --cached<cr>
+
 " Map .. to going back when exploring git tree objects
 autocmd User fugitive
             \ if fugitive#buffer().type() =~# '^\%(tree\|blob\)$' |
             \   nnoremap <buffer> .. :edit %:h<CR> |
             \ endif
+
 " Auto delete inactive fugitive buffers
 autocmd BufReadPost fugitive://* set bufhidden=delete
 " }}}
