@@ -55,7 +55,8 @@ function mkdircd () { mkdir -p "$@" && eval cd "\"\$$#\""; }
 
 # Moooooooooooar aliases!!
 alias gacm="git add . && git commit -m"
-alias gac="git add . && git commit "
+alias gac="git add . && git commit"
+alias gaca="git add . && git commit --amend"
 alias srmit="source ~/dotfiles/scripts/rmitproxy"
 alias svim="sudo -E $HOME/local/bin/vim"
 alias svnadd='svn status | grep "^\?" | awk "{print $2}" | xargs svn add'
