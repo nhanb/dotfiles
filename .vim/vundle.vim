@@ -25,6 +25,7 @@ Bundle 'tpope/vim-repeat'
 Bundle 'scrooloose/nerdcommenter.git'
 Bundle 'closetag.vim'
 Bundle 'mako.vim'
+Bundle "pangloss/vim-javascript"
 " }}}
 " Fugitive - Ultimate git wrapper for vim {{{
 " ================================================================
