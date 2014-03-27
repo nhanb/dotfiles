@@ -22,6 +22,7 @@ Bundle 'tpope/vim-eunuch'
 Bundle 'tpope/vim-surround'
 Bundle 'tpope/vim-markdown'
 Bundle 'tpope/vim-repeat'
+Bundle 'tpope/vim-dispatch'
 Bundle 'scrooloose/nerdcommenter.git'
 Bundle 'closetag.vim'
 Bundle 'mako.vim'
@@ -33,7 +34,8 @@ Bundle 'tpope/vim-fugitive'
 
 nnoremap <leader>gg :Git<space>
 nnoremap <leader>gm :Gmove<space>
-nnoremap <leader>gc :Gcommit<cr>
+nnoremap <leader>gcc :Gcommit<cr>
+nnoremap <leader>gca :Git commit --amend<cr>
 nnoremap <leader>gd :Gdiff<cr>
 nnoremap <leader>gs :Gstatus<cr>
 nnoremap <leader>gb :Gblame<cr>
