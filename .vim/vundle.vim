@@ -16,7 +16,6 @@ Bundle 'mattn/webapi-vim'
 Bundle 'mattn/gist-vim'
 Bundle 'Glench/Vim-Jinja2-Syntax'
 Bundle 'groenewege/vim-less'
-Bundle 'Raimondi/delimitMate'
 Bundle 'hynek/vim-python-pep8-indent'
 Bundle 'tpope/vim-eunuch'
 Bundle 'tpope/vim-surround'
@@ -28,6 +27,11 @@ Bundle 'closetag.vim'
 Bundle 'mako.vim'
 Bundle "pangloss/vim-javascript"
 " }}}
+" delimitMate - Auto bracket {{{
+" ================================================================
+Bundle 'Raimondi/delimitMate'
+let delimitMate_expand_cr = 1
+"}}}
 " Fugitive - Ultimate git wrapper for vim {{{
 " ================================================================
 Bundle 'tpope/vim-fugitive'
