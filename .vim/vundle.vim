@@ -25,7 +25,7 @@ Bundle 'tpope/vim-dispatch'
 Bundle 'scrooloose/nerdcommenter.git'
 Bundle 'closetag.vim'
 Bundle 'mako.vim'
-Bundle "pangloss/vim-javascript"
+Bundle 'pangloss/vim-javascript'
 " }}}
 " delimitMate - Auto bracket {{{
 " ================================================================
@@ -185,6 +185,8 @@ Bundle 'altercation/vim-colors-solarized'
 set background=dark
 colorscheme solarized
 hi Folded cterm=None ctermfg=166
+hi CursorLineNr ctermfg=112 cterm=bold
+hi SignColumn ctermbg=8
 "set t_Co=256
 "let g:solarized_termcolors=256
 " }}}

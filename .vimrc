@@ -65,10 +65,9 @@ autocmd FileType xml set omnifunc=xmlcomplete#CompleteTags
 autocmd FileType php set omnifunc=phpcomplete#CompletePHP
 autocmd FileType c set omnifunc=ccomplete#Complete
 
-" Absolute line number only when in insert mode
-set number        " just to make sure active line has absolute number
-set relativenumber  " relative numbers are better
-highlight CursorLineNr ctermfg=112 cterm=bold
+" Set relative line numbers but active line has absolute number
+set number
+set relativenumber
 
 
 " ================================================================
