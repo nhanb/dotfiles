@@ -45,7 +45,7 @@ for file in dotfiles/.[a-z]*; do
     for ig in ${ignores[*]}; do
         if [ "$ig" == "$name" ]; then
             skip=1
-            echo "Ignored $name\n"
+            echo "Ignored $name"
             break
         fi
     done
@@ -76,7 +76,7 @@ for file in dotfiles/.[a-z]*; do
     # Create symlink for files inside ~/dotfiles/
     rm -rf ~/$name # Remove any remaining broken symlink
     ln -s ~/$file ~/$name
-    echo "Symlink created: ~/$name -> ~/$file\n"
+    echo "Symlink created: ~/$name -> ~/$file"
 
 done
 
