@@ -1,7 +1,7 @@
 # Obligatory oh-my-zsh setup
 ZSH=$HOME/.oh-my-zsh
 ZSH_THEME="nhanb"
-plugins=(git virtualenv virtualenvwrapper)
+plugins=(git virtualenv)
 source $ZSH/oh-my-zsh.sh
 
 if [ -f $HOME/dotfiles/globalrc ]; then
