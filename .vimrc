@@ -7,7 +7,11 @@ au BufNewFile,BufRead *.zsh-theme set filetype=zsh
 set encoding=utf-8
 set laststatus=2   " Always show the statusline
 set encoding=utf-8 " Necessary to show Unicode glyphs
-set guifont=DejaVu\ Sans\ Mono\ for\ Powerline\ 10
+set guifont=Meslo\ LG\ S\ for\ Powerline\ 10
+set guioptions-=m  "remove menu bar
+set guioptions-=T  "remove toolbar
+set guioptions-=r  "remove right-hand scroll bar
+set guioptions-=L  "remove left-hand scroll bar
 
 "" closes the scratch (tip) buffer when cursor moves in insert mode
 "autocmd! CursorMovedI * if pumvisible() == 0|pclose|endif
