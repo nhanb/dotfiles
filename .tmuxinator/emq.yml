@@ -1,0 +1,22 @@
+name: emq
+root: ~/pj/eastern-union
+
+# Runs before everything
+pre: vagrant up
+
+windows:
+  - vim: vim
+  - vagrant-ssh:
+      layout: main-vertical
+      panes:
+        - free:
+            - vagrant ssh
+            - cd /vagrant
+            - . scripts/set_env.sh
+            - twistd -n warp
+        - psql:
+            - vagrant ssh
+            - cd /vagrant
+            - . scripts/set_env.sh
+            - psql
+  - shell: l

@@ -1,0 +1,10 @@
+name: blog
+root: ~/blog
+
+# Runs in each window and pane before window/pane specific commands
+pre_window: workon pelican
+
+windows:
+  - server: make devserver
+  - vim: vim
+  - shell: la

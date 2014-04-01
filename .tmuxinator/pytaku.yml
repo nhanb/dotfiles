@@ -1,0 +1,12 @@
+name: pytaku
+root: ~/pj/pytaku
+
+# Runs in each window and pane before window/pane specific commands
+pre_window: workon pytaku
+
+windows:
+  - editor:
+      panes:
+        - vim -c NERDTree
+  - devserver: gserve
+  - shell: ll
