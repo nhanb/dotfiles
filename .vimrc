@@ -4,6 +4,9 @@ syntax on
 
 au BufNewFile,BufRead *.zsh-theme set filetype=zsh
 
+" % on steroid
+runtime macros/matchit.vim
+
 set encoding=utf-8
 set laststatus=2   " Always show the statusline
 set encoding=utf-8 " Necessary to show Unicode glyphs
@@ -78,13 +81,9 @@ set relativenumber
 " HERE COME KEYBINDINGS
 " ================================================================
 
-" press ; for :
-nnoremap ; :
-nnoremap : ;
-vnoremap ; :
-
 " Change the leader key from \ to ,
 let mapleader=","
+noremap \ ,
 
 " Esc alternatives
 inoremap jj <esc><esc>
