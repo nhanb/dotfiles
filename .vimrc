@@ -3,6 +3,7 @@ set nocompatible               " be iMproved
 syntax on
 
 au BufNewFile,BufRead *.zsh-theme set filetype=zsh
+au BufNewFile,BufRead *.mak set filetype=mako
 
 " % on steroid
 runtime macros/matchit.vim

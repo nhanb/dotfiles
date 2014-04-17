@@ -26,3 +26,4 @@ source /usr/bin/virtualenvwrapper.sh
 
 export PATH=$PATH:$HOME/.rvm/bin
 [ -f /home/nhanb/.travis/travis.sh ] && source /home/nhanb/.travis/travis.sh
+export PATH=$PATH:$HOME/.cabal/bin

@@ -26,6 +26,9 @@ Bundle 'scrooloose/nerdcommenter.git'
 Bundle 'closetag.vim'
 Bundle 'mako.vim'
 Bundle 'pangloss/vim-javascript'
+Bundle 'mustache/vim-mustache-handlebars'
+Bundle 'stephpy/vim-yaml'
+Bundle 'gregsexton/MatchTag'
 " }}}
 " delimitMate - Auto bracket {{{
 " ================================================================
