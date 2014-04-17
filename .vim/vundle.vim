@@ -55,9 +55,10 @@ nnoremap <leader>gw :Gwrite<cr>
 nnoremap <leader>gr :Gread<cr>
 
 " Open git log in a new buffer
-nnoremap <leader>glt :Gtabedit! log<cr>
-nnoremap <leader>glp :Gtabedit! log --pretty=oneline<cr>
+nnoremap <leader>gll :Gtabedit! log<cr>
+nnoremap <leader>glo :Gtabedit! log --pretty=oneline<cr>
 nnoremap <leader>glg :Gtabedit! log --graph<cr>
+nnoremap <leader>glp :Gtabedit! log -p<cr>
 
 " Open git diff in a new buffer
 nnoremap <leader>gff :Gtabedit! diff<cr>
