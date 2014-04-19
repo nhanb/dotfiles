@@ -1,10 +1,16 @@
 #!/usr/bin/env bash
 
+node_version='v0.11.12'
+
 cd ~/open-source # where I clone git repos
 
 if [ "$1" = 'u' ] ; then
     cd node
-    git pull
+    git checkout master
+    git pull -u origin master
+    git checkout $node_version
+    make clean
+    make distclean
     ./configure --prefix=$HOME/local
     make install
 
@@ -14,6 +20,7 @@ if [ "$1" = 'u' ] ; then
 else
     git clone git://github.com/joyent/node.git
     cd node
+    git checkout $node_version
     ./configure --prefix=$HOME/local
     make install
     cd ..
