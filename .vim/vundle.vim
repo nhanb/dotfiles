@@ -29,6 +29,7 @@ Bundle 'pangloss/vim-javascript'
 Bundle 'mustache/vim-mustache-handlebars'
 Bundle 'stephpy/vim-yaml'
 Bundle 'gregsexton/MatchTag'
+Bundle 'marijnh/tern_for_vim'
 " }}}
 " delimitMate - Auto bracket {{{
 " ================================================================
