@@ -179,6 +179,7 @@ assign [class="Transmission-gtk"] 10
 
 # Misc
 for_window [class="Xfce4-terminal"] floating enable
+for_window [class="Orage"] floating enable
 for_window [class="Xfce4-appfinder"] floating enable
 for_window [class="Viewnior"] floating enable
 for_window [class="Lxpolkit"] floating enable

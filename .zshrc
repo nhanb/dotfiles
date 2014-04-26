@@ -12,6 +12,7 @@ export MYVIM="full"  # install all plugins, including the non-trivial ones too
 alias mountPhone='go-mtpfs /media/MyAndroid'
 alias unmountPhone='fusermount -u /media/MyAndroid'
 alias tm=tmuxinator
+alias histgrep='cat ~/.zsh_history | grep'
 
 # Google App Engine (Python WTF!)
 export GAE_PATH="$HOME/google_appengine"

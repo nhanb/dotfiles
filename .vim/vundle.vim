@@ -152,7 +152,7 @@ nnoremap <leader>e :NERDTreeToggle<cr>
 " ================================================================
 Bundle 'scrooloose/syntastic'
 
-let g:syntastic_python_checkers=['flake8']
+let g:syntastic_python_checkers=['frosted']
 let g:syntastic_javascript_checkers=['jslint']
 let g:syntastic_sh_checkers=['sh']
 let g:syntastic_always_populate_loc_list = 1
