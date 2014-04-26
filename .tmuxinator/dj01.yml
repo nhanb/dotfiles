@@ -1,7 +1,9 @@
+# ~/.tmuxinator/dj01.yml
+
 name: dj01
 root: ~/pj/dj01
 
-# Runs in each window and pane before window/pane specific commands
+# Runs in each window and pane before window/pane specific commands.
 pre_window: workon dj01
 
 windows:

@@ -1,7 +1,7 @@
 name: pytaku
 root: ~/pj/pytaku
 
-# Runs in each window and pane before window/pane specific commands
+# Runs in each window and pane before window/pane specific commands. Useful for setting up interpreter versions.
 pre_window: workon pytaku
 
 windows:

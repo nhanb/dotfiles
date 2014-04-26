@@ -1,7 +1,7 @@
 name: emq
 root: ~/pj/eastern-union
 
-# Runs before everything
+# Runs before everything. Use it to start daemons etc.
 pre: vagrant up
 
 windows:

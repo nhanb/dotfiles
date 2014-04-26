@@ -1,0 +1,11 @@
+name: ajnw
+root: ~/pj/ajmg-nw
+
+windows:
+  - editor: vim
+  - devserver:
+      layout: main-horizontal
+      panes:
+        - livereload ./app
+        - python2 -m SimpleHTTPServer 8080
+  - shell: grunt # build releases
