@@ -149,7 +149,7 @@ popup_during_fullscreen smart
 hide_edge_borders both
 
 # 1: Browser
-assign [class="^Google-chrome-stable$"] 1
+#assign [class="^Google-chrome-stable$"] 1
 for_window [title=" - Google Chrome$"] border none
 
 # 2: Other browsers
@@ -160,6 +160,8 @@ assign [class="^Uzbl-tabbed$"] 2
 for_window [class="^Uzbl-tabbed$"] border none
 assign [class="^luakit$"] 2
 for_window [class="^luakit$"] border none
+assign [class="^Nw$"] 2
+for_window [class="^Nw$"] border none
 
 #4: File Manager
 assign [class="^Thunar$"] 4

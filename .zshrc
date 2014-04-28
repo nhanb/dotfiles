@@ -13,6 +13,7 @@ alias mountPhone='go-mtpfs /media/MyAndroid'
 alias unmountPhone='fusermount -u /media/MyAndroid'
 alias tm=tmuxinator
 alias histgrep='cat ~/.zsh_history | grep'
+alias devchrome="google-chrome-stable --user-data-dir=\"$HOME/tmp/chrome_dev_session\" --disable-web-security"
 
 # Google App Engine (Python WTF!)
 export GAE_PATH="$HOME/google_appengine"

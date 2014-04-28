@@ -6,6 +6,9 @@ windows:
   - devserver:
       layout: main-horizontal
       panes:
-        - livereload ./app
-        - python2 -m SimpleHTTPServer 8080
+        - livereload:
+          - cd app
+          - livereload
+        - nw:
+          - nw app
   - shell: grunt # build releases
