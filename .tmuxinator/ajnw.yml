@@ -10,5 +10,6 @@ windows:
           - cd app
           - livereload
         - nw:
+          - export NW_DEV_AJNW=1
           - nw app
   - shell: grunt # build releases

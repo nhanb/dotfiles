@@ -166,9 +166,11 @@ for_window [class="^Nw$"] border none
 #4: File Manager
 assign [class="^Thunar$"] 4
 
-#5: Movie
+#5: Movie/Comic
 assign [class="^Smplayer$"] 5
 for_window [class="^Smplayer$"] border none
+assign [class="^Mcomix$"] 5
+for_window [class="^SMcomix$"] border none
 
 #7: Steam
 assign [class="^Steam$"] 7
@@ -186,6 +188,7 @@ for_window [class="Xfce4-appfinder"] floating enable
 for_window [class="Viewnior"] floating enable
 for_window [class="Lxpolkit"] floating enable
 for_window [class="Xfce4-notifyd"] floating enable border none
+for_window [class="feh"] floating enable
 for_window [class="Gnome-terminal"] border none
 
 # =============== Startup ================
