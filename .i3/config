@@ -153,7 +153,7 @@ hide_edge_borders both
 for_window [title=" - Google Chrome$"] border none
 
 # 2: Other browsers
-assign [class="^Firefox$"] 2
+assign [class="^Firefox$"] 1
 for_window [title=" - Mozilla Firefox$"] border none
 for_window [title="^Firefox Preferences$"] floating enable
 assign [class="^Uzbl-tabbed$"] 2
