@@ -165,6 +165,7 @@ for_window [class="^Nw$"] border none
 
 #4: File Manager
 assign [class="^Thunar$"] 4
+for_window [title="^File Operation Progress$"] floating enable
 
 #5: Movie/Comic
 assign [class="^Smplayer$"] 5
