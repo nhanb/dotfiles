@@ -5,7 +5,9 @@ root: ~/pj/eastern-union
 pre: vagrant up
 
 windows:
-  - vim: vim
+  - vim:
+    - workon py2
+    - vim
   - vagrant-ssh:
       layout: main-vertical
       panes:
