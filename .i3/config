@@ -11,6 +11,8 @@ set $alt Mod1
 # chose a FreeType font, such as:
 font pango:DejaVu Sans Mono 10
 
+bindsym $mod+b bar mode toggle
+
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $alt
 
@@ -65,9 +67,6 @@ bindsym $mod+f fullscreen
 bindsym $mod+s layout stacking
 bindsym $mod+w layout tabbed
 bindsym $mod+e layout toggle split
-
-# toggle tiling / floating
-bindsym $mod+Shift+space floating toggle
 
 ## change focus between tiling / floating windows
 #bindsym $mod+space focus mode_toggle
@@ -138,7 +137,7 @@ bindsym $mod+r mode "resize"
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
 bar {
-        status_command i3status
+    status_command i3status
 }
 
 workspace_auto_back_and_forth yes
@@ -156,12 +155,22 @@ for_window [title=" - Google Chrome$"] border none
 assign [class="^Firefox$"] 1
 for_window [title=" - Mozilla Firefox$"] border none
 for_window [title="^Firefox Preferences$"] floating enable
+for_window [title="DownThemAll!"] floating enable
+
 assign [class="^Uzbl-tabbed$"] 2
 for_window [class="^Uzbl-tabbed$"] border none
 assign [class="^luakit$"] 2
 for_window [class="^luakit$"] border none
 assign [class="^Nw$"] 2
 for_window [class="^Nw$"] border none
+
+# Or Office
+assign [instance="WINWORD.EXE"] 2
+for_window [instance="WINWORD.EXE"] border none
+assign [instance="POWERPNT.EXE"] 2
+for_window [instance="POWERPNT.EXE"] border none
+assign [instance="EXCEL.EXE"] 2
+for_window [instance="EXCEL.EXE"] border none
 
 #4: File Manager
 assign [class="^Thunar$"] 4
