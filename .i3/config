@@ -152,10 +152,11 @@ hide_edge_borders both
 for_window [title=" - Google Chrome$"] border none
 
 # 2: Other browsers
-assign [class="^Firefox$"] 1
-for_window [title=" - Mozilla Firefox$"] border none
+assign [title=" - Mozilla Firefox$"] 1
+for_window [class="^Firefox$"] border none
 for_window [title="^Firefox Preferences$"] floating enable
 for_window [title="DownThemAll!"] floating enable
+for_window [instance="Popup" class="Firefox"] border none
 
 assign [class="^Uzbl-tabbed$"] 2
 for_window [class="^Uzbl-tabbed$"] border none
@@ -200,6 +201,7 @@ for_window [class="Lxpolkit"] floating enable
 for_window [class="Xfce4-notifyd"] floating enable border none
 for_window [class="feh"] floating enable
 for_window [class="Gnome-terminal"] border none
+for_window [class="Nm-applet"] border none
 
 # =============== Startup ================
 
