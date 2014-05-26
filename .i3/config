@@ -202,6 +202,8 @@ for_window [class="Xfce4-notifyd"] floating enable border none
 for_window [class="feh"] floating enable
 for_window [class="Gnome-terminal"] border none
 for_window [class="Nm-applet"] border none
+for_window [class="Nm-connection-editor"] border none
+for_window [class="Gedit"] border none
 
 # =============== Startup ================
 
