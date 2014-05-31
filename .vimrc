@@ -182,6 +182,10 @@ inoremap <c-f9> <esc>:wq<cr>
 nnoremap <c-f9> <esc>:wq<cr>
 vnoremap <c-f9> <esc>:wq<cr>
 
+" Format json
+nnoremap <leader>j :%!python -m json.tool<cr>
+vnoremap <leader>j !python -m json.tool<cr>
+
 " Only use plugins if envar $MYVIM has been set
 if !empty($MYVIM)
     so $HOME/.vim/vundle.vim

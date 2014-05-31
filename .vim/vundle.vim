@@ -64,6 +64,9 @@ nnoremap <leader>glp :Gtabedit! log -p<cr>
 nnoremap <leader>gff :Gtabedit! diff<cr>
 nnoremap <leader>gfc :Gtabedit! diff --cached<cr>
 
+" Grep
+nnoremap <leader>ge :Gtabedit! grep 
+
 " Map .. to going back when exploring git tree objects
 autocmd User fugitive
             \ if fugitive#buffer().type() =~# '^\%(tree\|blob\)$' |

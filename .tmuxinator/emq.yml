@@ -15,6 +15,7 @@ windows:
             - vagrant ssh
             - cd /vagrant
             - . scripts/set_env.sh
+            - sudo service nginx start
             - twistd -n warp
         - psql:
             - vagrant ssh
