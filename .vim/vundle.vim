@@ -185,6 +185,13 @@ nnoremap <silent> <c-k> :TmuxNavigateUp<cr>
 nnoremap <silent> <c-l> :TmuxNavigateRight<cr>
 nnoremap <silent> <c-\> :TmuxNavigatePrevious<cr>
 " }}}
+" localvimrc - Project-specific vimrc {{{
+" ================================================================
+Bundle 'embear/vim-localvimrc'
+
+" Store and restore decisions only if answer was in upper case (Y/N/A).
+let g:localvimrc_persistent = 1
+" }}}
 " Solarized colorscheme {{{
 " ================================================================
 Bundle 'altercation/vim-colors-solarized'
