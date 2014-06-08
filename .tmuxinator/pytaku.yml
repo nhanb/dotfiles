@@ -8,5 +8,8 @@ windows:
   - editor:
       panes:
         - vim -c NERDTree
-  - devserver: gserve
+  - devserver:
+      panes:
+        - gserve
+        - gulp && gulp watch  # build then watch
   - shell: ll

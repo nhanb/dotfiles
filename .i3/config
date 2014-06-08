@@ -178,8 +178,8 @@ assign [class="^Thunar$"] 4
 for_window [title="^File Operation Progress$"] floating enable
 
 #5: Movie/Comic
-assign [class="^Smplayer$"] 5
-for_window [class="^Smplayer$"] border none
+assign [class="^smplayer$"] 5
+for_window [class="^smplayer$"] border none
 assign [class="^Mcomix$"] 5
 for_window [class="^SMcomix$"] border none
 

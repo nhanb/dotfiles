@@ -9,26 +9,20 @@ Bundle 'gmarik/vundle'
 
 " Straightforward stuff (no custom config) {{{
 " ================================================================
-Bundle 'shougo/vimproc'
-Bundle 'shougo/vimshell'
 Bundle 'beloglazov/vim-online-thesaurus'
 Bundle 'mattn/webapi-vim'
 Bundle 'mattn/gist-vim'
 Bundle 'Glench/Vim-Jinja2-Syntax'
-Bundle 'groenewege/vim-less'
-Bundle 'hynek/vim-python-pep8-indent'
 Bundle 'tpope/vim-eunuch'
 Bundle 'tpope/vim-surround'
-Bundle 'tpope/vim-markdown'
 Bundle 'tpope/vim-repeat'
 Bundle 'tpope/vim-dispatch'
 Bundle 'scrooloose/nerdcommenter.git'
 Bundle 'closetag.vim'
 Bundle 'mako.vim'
-Bundle 'pangloss/vim-javascript'
-Bundle 'mustache/vim-mustache-handlebars'
-Bundle 'stephpy/vim-yaml'
 Bundle 'gregsexton/MatchTag'
+Bundle 'mxw/vim-jsx'
+Bundle 'sheerun/vim-polyglot'
 " }}}
 " delimitMate - Auto bracket {{{
 " ================================================================
