@@ -189,6 +189,12 @@ vnoremap <leader>j !python -m json.tool<cr>
 " Search visually selected text
 vnoremap // y/<c-r>"<cr>"
 
+" Convenient saving without leaving home row
+" http://reefpoints.dockyard.com/2013/09/11/vim-staying-on-home-row-via-map.html
+inoremap ;d <esc>:update<cr>
+inoremap ;f <c-o>:update<cr>
+nnoremap ;f :update<cr>
+
 " Only use plugins if envar $MYVIM has been set
 if !empty($MYVIM)
     so $HOME/.vim/vundle.vim
