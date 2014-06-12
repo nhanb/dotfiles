@@ -96,7 +96,7 @@ nnoremap <silent> <f2> :silent noh<cr>:echo<cr>
 nnoremap <silent> <f1> :silent noh<cr>:echo<cr>
 
 "" F3 toggles paste mode
-"set pastetoggle=<f3>
+set pastetoggle=<F10>
 
 " F7 Clean ^M characters from Windows files
 nnoremap <f7> :%s/<c-v><c-m>//g<cr>
@@ -185,6 +185,9 @@ vnoremap <c-f9> <esc>:wq<cr>
 " Format json
 nnoremap <leader>j :%!python -m json.tool<cr>
 vnoremap <leader>j !python -m json.tool<cr>
+
+" Search visually selected text
+vnoremap // y/<c-r>"<cr>"
 
 " Only use plugins if envar $MYVIM has been set
 if !empty($MYVIM)

@@ -26,6 +26,7 @@ alias gserve='gaeserv .'
 
 # virtualenv
 export WORKON_HOME=$HOME/virtualenvs
+source /usr/local/bin/virtualenvwrapper.sh
 
 export PATH=$PATH:$HOME/.rvm/bin
 [ -f /home/nhanb/.travis/travis.sh ] && source /home/nhanb/.travis/travis.sh

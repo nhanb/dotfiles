@@ -61,6 +61,11 @@ nnoremap <leader>gfc :Gtabedit! diff --cached<cr>
 " Grep
 nnoremap <leader>ge :Gtabedit! grep 
 
+" Open current file in master
+nnoremap <leader>got :Gtabedit master:%<cr>
+nnoremap <leader>gos :Gsplit master:%<cr>
+nnoremap <leader>gov :Gvsplit master:%<cr>
+
 " Map .. to going back when exploring git tree objects
 autocmd User fugitive
             \ if fugitive#buffer().type() =~# '^\%(tree\|blob\)$' |
@@ -191,6 +196,8 @@ let g:localvimrc_persistent = 1
 Bundle 'altercation/vim-colors-solarized'
 
 set background=dark
+set t_Co=16
+let g:solarized_termcolors=16
 colorscheme solarized
 hi Folded cterm=None ctermfg=166
 hi CursorLineNr ctermfg=112 cterm=bold
