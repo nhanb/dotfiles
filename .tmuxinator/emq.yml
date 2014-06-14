@@ -6,7 +6,7 @@ pre: vagrant up
 
 windows:
   - vim:
-    - workon py2
+    - workon emq
     - vim
   - vagrant-ssh:
       layout: main-vertical
@@ -22,4 +22,9 @@ windows:
             - cd /vagrant
             - . scripts/set_env.sh
             - psql
-  - shell: l
+  - dev4-ssh:
+    - ssh -p 1022 dev4.cogini.com
+    - cd /var/www/hosts/eastern-demo.cogini.com/htdocs
+    - . scripts/set_env.sh
+  - shell:
+    - ls
