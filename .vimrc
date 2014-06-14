@@ -1,3 +1,4 @@
+" vim:fdm=marker
 set nocompatible               " be iMproved
 
 syntax on
@@ -191,9 +192,37 @@ vnoremap // y/<c-r>"<cr>"
 
 " Convenient saving without leaving home row
 " http://reefpoints.dockyard.com/2013/09/11/vim-staying-on-home-row-via-map.html
-inoremap ;d <esc>:update<cr>
-inoremap ;f <c-o>:update<cr>
-nnoremap ;f :update<cr>
+inoremap ;d <esc>:w<cr>
+inoremap ;s <c-o>:w<cr>
+
+" Run, Forrest, Run!
+nnoremap <leader>q :!chmod +x %<cr>
+
+" Use '+' register or xsel to do system clipboard stuff {{{
+if has('clipboard')
+    vnoremap <leader>y "+y
+                \:echo 'Selection yanked to system clipboard'<cr>
+    nnoremap <leader>y "+yy
+                \:echo '1 line yanked to system clipboard'<cr>
+    nnoremap <leader>p "+p
+elseif executable('xsel')
+    vnoremap <leader>y :w !xsel -i -b<cr><cr>
+                \:echo 'Selection yanked to system clipboard'<cr>
+    nnoremap <leader>y V:w !xsel -i -b<cr><cr>
+                \:echo '1 line yanked to system clipboard'<cr>
+    nnoremap <leader>p :silent :r !xsel -o -b<cr>
+else
+    function! NoClipboardWarning()
+        echohl WarningMsg
+        echo 'Cannnot use system clipboard. Install `xsel` or recompile vim'.
+                    \' with "+clipboard" to solve this.'
+        echohl None
+    endfunction
+    vnoremap <leader>y :call NoClipboardWarning()<cr>
+    nnoremap <leader>y :call NoClipboardWarning()<cr>
+    nnoremap <leader>p :call NoClipboardWarning()<cr>
+endif
+"}}}
 
 " Only use plugins if envar $MYVIM has been set
 if !empty($MYVIM)
