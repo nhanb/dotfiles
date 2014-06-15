@@ -135,13 +135,6 @@ nnoremap <leader>m <esc>:tabnext<cr>
 " Change working dir to the current file's dir
 nnoremap <leader>h :cd<space>%:p:h<cr>:pwd<cr>
 
-" Use X11 system clipboard
-nnoremap <leader>xp "+p
-nnoremap <leader>xyy "+yy
-nnoremap <leader>xdd "+dd
-vnoremap <leader>xy "+y
-vnoremap <leader>xd "+d
-
 " Visually select a piece of text then press ~ to change its case. There are
 " three types: all lowercase, ALL UPPERCASE, First Letters Uppercase.
 function! TwiddleCase(str)
