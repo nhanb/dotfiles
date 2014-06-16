@@ -1,0 +1,6 @@
+name: chef
+root: ~/open-source/chef-cookbooks
+
+windows:
+  - editor: vim
+  - shell: cd ~/tmp
