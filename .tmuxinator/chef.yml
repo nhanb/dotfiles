@@ -3,4 +3,8 @@ root: ~/open-source/chef-cookbooks
 
 windows:
   - editor: vim
-  - shell: cd ~/tmp
+  - shell:
+    layout: vertical
+    panes:
+      - shell: ls
+      - tmp: cd ~/tmp
