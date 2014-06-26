@@ -60,3 +60,9 @@ alias gaca="git add . && git commit --amend"
 alias srmit="source ~/dotfiles/scripts/rmitproxy"
 alias svim="sudo -E $HOME/local/bin/vim"
 alias svnadd='svn status | grep "^\?" | awk "{print $2}" | xargs svn add'
+
+# If GitHub's `hub` is installed, set up some nice aliases
+if command -v foo >/dev/null 2>&1; then
+    alias h='hub'
+    # TODO: add more as I figure out what's most frequently used
+fi
