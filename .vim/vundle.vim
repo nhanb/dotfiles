@@ -66,6 +66,10 @@ nnoremap <leader>got :Gtabedit master:%<cr>
 nnoremap <leader>gos :Gsplit master:%<cr>
 nnoremap <leader>gov :Gvsplit master:%<cr>
 
+" Requires Dispatch:
+nnoremap <leader>gps :Dispatch git push<cr>
+nnoremap <leader>gpl :Dispatch git pull<cr>
+
 " Map .. to going back when exploring git tree objects
 autocmd User fugitive
             \ if fugitive#buffer().type() =~# '^\%(tree\|blob\)$' |
