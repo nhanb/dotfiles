@@ -37,7 +37,7 @@ nnoremap <leader>gg :Git<space>
 nnoremap <leader>gm :Gmove<space>
 nnoremap <leader>gcc :Gcommit<cr>
 nnoremap <leader>gca :Git commit --amend<cr>
-nnoremap <leader>gd :Gdiff<cr>
+nnoremap <leader>gd :Gvdiff<cr>
 nnoremap <leader>gs :Gstatus<cr>
 nnoremap <leader>gb :Gblame<cr>
 
