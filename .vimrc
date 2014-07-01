@@ -191,6 +191,10 @@ inoremap ;s <c-o>:w<cr>
 " Run, Forrest, Run!
 nnoremap <leader>q :!chmod +x %<cr>
 
+" Space to center cursor vertically
+" (yeah, zz is an abomination to ergo-minded people... or at least me)
+nnoremap <space> zz
+
 " Use '+' register or xsel to do system clipboard stuff {{{
 if has('clipboard')
     vnoremap <leader>y "+y
