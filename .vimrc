@@ -195,6 +195,9 @@ nnoremap <leader>q :!chmod +x %<cr>
 " (yeah, zz is an abomination to ergo-minded people... or at least me)
 nnoremap <space> zz
 
+" Close quickfix
+nnoremap <leader>x :cclose<cr>
+
 " Use '+' register or xsel to do system clipboard stuff {{{
 if has('clipboard')
     vnoremap <leader>y "+y
