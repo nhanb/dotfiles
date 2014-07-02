@@ -67,10 +67,8 @@ nnoremap <leader>gos :Gsplit master:%<cr>
 nnoremap <leader>gov :Gvsplit master:%<cr>
 
 " Less intrusive push/pull - requires vim-dispatch plugin
-if exists(':Dispatch')
-    nnoremap <leader>gps :Dispatch git push<cr>
-    nnoremap <leader>gpl :Dispatch git pull<cr>
-endif
+nnoremap <leader>gps :Dispatch git push<cr>
+nnoremap <leader>gpl :Dispatch git pull<cr>
 
 " Map .. to going back when exploring git tree objects
 autocmd User fugitive
