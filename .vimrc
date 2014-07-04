@@ -189,7 +189,7 @@ inoremap ;d <esc>:w<cr>
 inoremap ;s <c-o>:w<cr>
 
 " Run, Forrest, Run!
-nnoremap <leader>q :!chmod +x %<cr>
+nnoremap <leader>q :!chmod +x %<cr><cr>:echo 'File is now executable'<cr>
 
 " Space to center cursor vertically
 " (yeah, zz is an abomination to ergo-minded people... or at least me)
