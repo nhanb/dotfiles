@@ -9,7 +9,7 @@ windows:
     - workon emq
     - vim
   - vagrant-ssh:
-      layout: main-vertical
+      layout: vertical
       panes:
         - free:
             - vagrant ssh
