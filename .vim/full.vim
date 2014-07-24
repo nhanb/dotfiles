@@ -39,7 +39,6 @@ let g:ycm_global_ycm_extra_conf = '~/.vim/ycm_extra_conf.py'
 " Don't ask every time
 let g:ycm_confirm_extra_conf = 0
 let g:ycm_register_as_syntastic_checker = 0
-let g:ycm_path_to_python_interpreter = '/usr/bin/python2'
 let g:ycm_filetype_blacklist = {
             \ 'notes' : 1,
             \ 'text' : 1,
