@@ -79,12 +79,16 @@ autocmd User fugitive
 " Auto delete inactive fugitive buffers
 autocmd BufReadPost fugitive://* set bufhidden=delete
 " }}}
-" Extradite - Requires fugitive - git history viewer {{{
+" Gitv - Requires fugitive - "command line gitk" {{{
 " ================================================================
-Bundle 'int3/vim-extradite'
+Plugin 'gregsexton/gitv'
 
-" Extradite split size
-let g:extradite_width = 84
+" Their default <c-whatever> keybindings clash with mine => disable them
+let g:Gitv_DoNotMapCtrlKey = 1
+
+nmap <leader>gv :Gitv --all<cr>
+nmap <leader>gV :Gitv! --all<cr>
+vmap <leader>gV :Gitv! --all<cr>
 " }}}
 " UltiSnips - Code snippets {{{
 " ================================================================
@@ -192,28 +196,6 @@ Bundle 'embear/vim-localvimrc'
 
 " Store and restore decisions only if answer was in upper case (Y/N/A).
 let g:localvimrc_persistent = 1
-" }}}
-" Easymotion {{{
-" ================================================================
-Bundle 'Lokaltog/vim-easymotion'
-
-let g:EasyMotion_do_mapping = 0 " Disable default mappings
-
-" Bi-directional find motion
-nmap s <Plug>(easymotion-s)
-
-" Similar to vim smartcase search
-let g:EasyMotion_smartcase = 1
-
-" JK motions: Line motions
-map <Leader>j <Plug>(easymotion-j)
-map <Leader>k <Plug>(easymotion-k)
-
-" Make sure it uses sane colors
-hi link EasyMotionTarget IncSearch
-hi link EasyMotionShade  Comment
-hi link EasyMotionTarget2First IncSearch
-hi link EasyMotionTarget2Second IncSearch
 " }}}
 " Solarized colorscheme {{{
 " ================================================================
