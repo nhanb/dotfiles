@@ -22,7 +22,8 @@ Bundle 'closetag.vim'
 Bundle 'mako.vim'
 Bundle 'gregsexton/MatchTag'
 Bundle 'mxw/vim-jsx'
-Bundle 'sheerun/vim-polyglot'
+Bundle 'pangloss/vim-javascript'
+Bundle 'mitsuhiko/vim-python-combined'
 " }}}
 " delimitMate - Auto bracket {{{
 " ================================================================
