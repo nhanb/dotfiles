@@ -2,8 +2,8 @@ if [ -f $HOME/dotfiles/globalrc ]; then
    source $HOME/dotfiles/globalrc
 fi
 
-if [ -f /etc/bash_completion ]; then
-    . /etc/bash_completion
+if [ -f /etc/bash_completion ] && ! shopt -oq posix; then
+  . /etc/bash_completion
 fi
 
 xhost +local:root > /dev/null 2>&1
