@@ -32,3 +32,6 @@ export PATH=$PATH:$HOME/.rvm/bin
 [ -f /home/nhanb/.travis/travis.sh ] && source /home/nhanb/.travis/travis.sh
 export PATH=$PATH:$HOME/.cabal/bin
 source ~/.nvm/nvm.sh
+
+# Improved terminfo that has italic support
+export TERM="xterm-256color-italic"

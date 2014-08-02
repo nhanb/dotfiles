@@ -85,5 +85,8 @@ if [ "$backedup" -eq 0 ]; then
     rm -rf $backupdir
 fi
 
+# Compile improved terminfo that supports italic text correctly
+tic ~/dotfiles/xterm-256color-italic.terminfo
+
 source ~/dotfiles/bootstrap/oh-my-zsh.sh
 source ~/dotfiles/bootstrap/vim.sh
