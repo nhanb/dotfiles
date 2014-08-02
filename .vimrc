@@ -5,6 +5,7 @@ syntax on
 
 au BufNewFile,BufRead *.zsh-theme set filetype=zsh
 au BufNewFile,BufRead *.mak set filetype=mako
+au BufNewFile,BufRead *.md set filetype=markdown
 
 " % on steroid
 runtime macros/matchit.vim
