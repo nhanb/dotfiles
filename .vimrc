@@ -79,10 +79,12 @@ set relativenumber
 let mapleader=","
 noremap \ ,
 
-" Esc alternatives
-inoremap jj <esc><esc>
-inoremap <c-c> <esc>
-vnoremap <c-c> <esc>
+" ---- Esc alternatives ----
+inoremap jj <esc>
+" Save, stay in normal mode
+inoremap jk <esc>:w<cr>l
+" Save, stay in insert mode
+inoremap jh <esc>:w<cr>a
 
 " F2 clears search highlight & search message
 nnoremap <silent> <f2> :silent noh<cr>:echo<cr>
