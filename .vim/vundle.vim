@@ -25,6 +25,15 @@ Bundle 'mxw/vim-jsx'
 Bundle 'pangloss/vim-javascript'
 Bundle 'mitsuhiko/vim-python-combined'
 " }}}
+
+" vim-markdown by tpope {{{
+" ================================================================
+Bundle 'tpope/vim-markdown'
+
+" Syntax highlighting for fenced code blocks. Neat eh?
+let g:markdown_fenced_languages = ['javascript', 'js=javascript',
+            \'json=javascript', 'python', 'bash=sh', 'zsh=sh']
+"}}}
 " delimitMate - Auto bracket {{{
 " ================================================================
 Bundle 'Raimondi/delimitMate'
