@@ -2,12 +2,6 @@ function collapse_pwd {
     echo $(pwd | sed -e "s,^$HOME,~,")
 }
 
-function prompt_char {
-    git branch >/dev/null 2>/dev/null && echo '±' && return
-    hg root >/dev/null 2>/dev/null && echo '☿' && return
-    echo '▶'
-}
-
 eval nhan_orange='$FX[bold]$FG[202]'
 eval nhan_orange2='$FX[bold]$FG[214]'
 eval nhan_yellow='$FX[bold]$FG[226]'
@@ -17,7 +11,7 @@ eval nhan_yellow_fade='$FX[bold]$FG[221]'
 eval nhan_purple='$FX[bold]$FG[201]'
 
 PROMPT='$nhan_orange2%n%{$reset_color%}|$nhan_yellow_fade%m%{$reset_color%} $nhan_green$(collapse_pwd)%{$reset_color%}$(git_prompt_info)$(git_prompt_status)
-$(virtualenv_prompt_info)$nhan_green$(prompt_char)%{$reset_color%} '
+$(virtualenv_prompt_info)$nhan_green▶%{$reset_color%} '
 
 ZSH_THEME_GIT_PROMPT_PREFIX="$nhan_yellow  %{$reset_color%}$nhan_orange"
 ZSH_THEME_GIT_PROMPT_SUFFIX="%{$reset_color%}"
