@@ -16,7 +16,6 @@ Bundle 'Glench/Vim-Jinja2-Syntax'
 Bundle 'tpope/vim-eunuch'
 Bundle 'tpope/vim-surround'
 Bundle 'tpope/vim-repeat'
-Bundle 'tpope/vim-dispatch'
 Bundle 'scrooloose/nerdcommenter.git'
 Bundle 'closetag.vim'
 Bundle 'mako.vim'
@@ -26,6 +25,14 @@ Bundle 'pangloss/vim-javascript'
 Bundle 'mitsuhiko/vim-python-combined'
 " }}}
 
+" vim-dispatch by tpope {{{
+" ================================================================
+Bundle 'tpope/vim-dispatch'
+
+nnoremap <f6> :w<cr>:Dispatch! make<cr>
+inoremap <f6> <esc>:w<cr>:Dispatch! make<cr>
+vnoremap <f6> <esc>:w<cr>:Dispatch! make<cr>
+"}}}
 " vim-markdown by tpope {{{
 " ================================================================
 Bundle 'tpope/vim-markdown'
