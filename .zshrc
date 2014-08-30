@@ -33,5 +33,4 @@ export PATH=$PATH:$HOME/.rvm/bin
 export PATH=$PATH:$HOME/.cabal/bin
 source ~/.nvm/nvm.sh
 
-# Improved terminfo that has italic support
-export TERM="xterm-256color-italic"
+export TERM="xterm-256color"
