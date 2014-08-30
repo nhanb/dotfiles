@@ -1,0 +1,30 @@
+#!/usr/bin/env bash
+
+# Exit script immediately when any command fails
+set -e
+
+URL="https://storage.googleapis.com/appengine-sdks/featured/google_appengine_$1.zip"
+echo "Downloading from $URL"
+
+if hash aria2c 2>/dev/null; then
+    echo "Using aria2c..."
+    aria2c -x4 -d '/tmp' --out='google_appengine.zip' --allow-overwrite=true $URL
+else
+    echo "Using wget..."
+    rm -rf /tmp/google_appengine.zip
+    wget -O /tmp/google_appengine.zip $URL
+fi
+
+target="$HOME/google_appengine"
+backup="$target"_old
+if [[ -d "$target" ]]; then
+    rm -rf $backup
+    mv $target $backup
+fi
+
+printf "Extracting to '$target'... "
+# *assuming* that Google will keep putting everything inside a
+# `google_appengine` dir in the zip file. What's that now? Afraid that they
+# won't and your HOME will be littered with GAE filth? Wuss!
+unzip -q /tmp/google_appengine.zip -d $HOME/
+echo 'done.'
