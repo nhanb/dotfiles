@@ -20,7 +20,7 @@ alias pshow='pass show -c'
 # Google App Engine (Python WTF!)
 export GAE_PATH="$HOME/google_appengine"
 alias gaecfg="python2 $GAE_PATH/appcfg.py --oauth2"
-alias gaeserv="python2 $GAE_PATH/dev_appserver.py"
+alias gaeserv="python2 $GAE_PATH/dev_appserver.py --datastore_path=$HOME/tmp"
 alias gdeploy='gaecfg update . && notify-send -u critical -i "/home/nhanb/myicons/gae.png" "GAE Deployed"'
 alias gserve='gaeserv .'
 
