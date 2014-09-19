@@ -11,7 +11,7 @@ windows:
   - vagrant-ssh:
       layout: vertical
       panes:
-        - free:
+        - webserver:
             - vagrant ssh
             - cd /vagrant
             - . scripts/set_env.sh
@@ -23,7 +23,7 @@ windows:
             - . scripts/set_env.sh
             - psql
   - dev4-ssh:
-    - ssh -p 1022 dev4.cogini.com
+    - ssh dev4
     - cd /var/www/hosts/eastern-demo.cogini.com/htdocs
     - . scripts/set_env.sh
   - shell:
