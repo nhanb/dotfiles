@@ -23,6 +23,7 @@ Bundle 'gregsexton/MatchTag'
 Bundle 'mxw/vim-jsx'
 Bundle 'pangloss/vim-javascript'
 Bundle 'mitsuhiko/vim-python-combined'
+Bundle 'kien/rainbow_parentheses.vim'
 " }}}
 
 " vim-dispatch by tpope {{{
