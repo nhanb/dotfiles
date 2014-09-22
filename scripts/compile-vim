@@ -7,15 +7,11 @@ hg pull && hg update
 make clean
 make distclean
 
-FLAGS="--prefix=$HOME/local"
-FLAGS="$FLAGS --with-features=huge"  # duh!
-FLAGS="$FLAGS --enable-pythoninterp"  # double duh!
-FLAGS="$FLAGS --enable-gui=gnome2"  # get me gvim
-if [[ "$1" = '64' ]] ; then
-    FLAGS="$FLAGS --with-python-config-dir=/usr/lib/python2.7/config-x86_64-linux-gnu"
-fi
-
-./configure $FLAGS
+./configure \
+    --prefix=$HOME/local \
+    --with-features=huge \
+    --enable-pythoninterp \
+    --enable-gui=gtk2
 make
 make install
 
