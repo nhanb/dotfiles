@@ -230,12 +230,22 @@ hi MatchParen ctermfg=123
 "set t_Co=256
 "let g:solarized_termcolors=256
 " }}}
+" Airline {{{
+" ================================================================
+Bundle 'bling/vim-airline'
+let g:airline_powerline_fonts = 1
+let g:airline_left_sep=''
+let g:airline_right_sep=''
+let g:airline_theme='powerlineish'
+
+" Fix slow mode switch issue
+if ! has('gui_running')
+    set ttimeoutlen=10
+endif
+"}}}
 
 if $MYVIM == "full"
     so $HOME/.vim/full.vim
-else
-    " Vim Airline will do if you can't have powerline
-    Bundle 'bling/vim-airline'
 endif
 
 filetype plugin indent on     " required!
