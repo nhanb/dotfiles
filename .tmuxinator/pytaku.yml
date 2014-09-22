@@ -7,8 +7,9 @@ pre_window: workon pytaku
 windows:
   - editor:
       panes:
-        - vim -c NERDTree
+        - vim
   - devserver:
+      layout: even-horizontal
       panes:
         - gserve
         - gulp && gulp watch  # build then watch
