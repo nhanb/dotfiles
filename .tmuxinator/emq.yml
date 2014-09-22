@@ -9,7 +9,7 @@ windows:
     - workon emq
     - vim
   - vagrant-ssh:
-      layout: vertical
+      layout: even-horizontal
       panes:
         - webserver:
             - vagrant ssh
@@ -22,9 +22,29 @@ windows:
             - cd /vagrant
             - . scripts/set_env.sh
             - psql
-  - dev4-ssh:
-    - ssh dev4
-    - cd /var/www/hosts/eastern-demo.cogini.com/htdocs
-    - . scripts/set_env.sh
+  - dev4:
+      layout: even-horizontal
+      panes:
+        - psql:
+          - ssh dev4
+          - cd /var/www/hosts/eastern-demo.cogini.com/htdocs
+          - . scripts/set_env.sh
+          - psql
+        - shell:
+          - ssh dev4
+          - cd /var/www/hosts/eastern-demo.cogini.com/htdocs
+          - . scripts/set_env.sh
+  - prod1:
+      layout: even-horizontal
+      panes:
+        - psql:
+          - ssh prod1
+          - cd /var/www/hosts/emq.cogini.com/htdocs
+          - . scripts/set_env.sh
+          - psql
+        - shell:
+          - ssh prod1
+          - cd /var/www/hosts/emq.cogini.com/htdocs
+          - . scripts/set_env.sh
   - shell:
     - ls
