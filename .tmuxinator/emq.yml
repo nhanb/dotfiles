@@ -38,12 +38,12 @@ windows:
       layout: even-horizontal
       panes:
         - psql:
-          - ssh prod1
+          - ssh emq-prod1
           - cd /var/www/hosts/emq.cogini.com/htdocs
           - . scripts/set_env.sh
           - psql
         - shell:
-          - ssh prod1
+          - ssh emq-prod1
           - cd /var/www/hosts/emq.cogini.com/htdocs
           - . scripts/set_env.sh
   - shell:
