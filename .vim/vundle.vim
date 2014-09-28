@@ -242,6 +242,20 @@ let g:airline_theme='powerlineish'
 if ! has('gui_running')
     set ttimeoutlen=10
 endif
+
+" I don't really need section y (encoding type and shit), so truncate it at
+" width 100.
+let g:airline#extensions#default#section_truncate_width = {
+            \ 'b': 79,
+            \ 'x': 60,
+            \ 'y': 100,
+            \ 'z': 45,
+            \ }
+
+" Removed the tagbar message. It's rarely useful but often obscures the file
+" name (which is obviously more important)
+let g:airline_section_x = '%{airline#util#wrap(airline#parts#filetype(),0)}'
+
 "}}}
 
 if $MYVIM == "full"
