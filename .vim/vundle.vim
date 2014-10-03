@@ -230,6 +230,13 @@ hi MatchParen ctermfg=123
 "set t_Co=256
 "let g:solarized_termcolors=256
 " }}}
+" Vim-gitgutter - Provides modified git info for airline {{{
+" ================================================================
+Bundle 'airblade/vim-gitgutter'
+
+" I just want airline integration, not gutter symbols => disable them
+let g:gitgutter_signs = 0
+" }}}
 " Airline {{{
 " ================================================================
 Bundle 'bling/vim-airline'
@@ -256,6 +263,7 @@ let g:airline#extensions#default#section_truncate_width = {
 " name (which is obviously more important)
 let g:airline_section_x = '%{airline#util#wrap(airline#parts#filetype(),0)}'
 
+let g:airline#extensions#hunks#non_zero_only = 1
 "}}}
 
 if $MYVIM == "full"
