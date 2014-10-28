@@ -192,6 +192,9 @@ nnoremap <space> zz
 " Close quickfix
 nnoremap <leader>x :cclose<cr>
 
+" Remap Y to 'yank till end of line' to make it consistent with C, D
+map Y y$
+
 " Use '+' register or xsel to do system clipboard stuff {{{
 if has('clipboard')
     vnoremap <leader>y "+y
