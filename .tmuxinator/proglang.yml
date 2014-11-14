@@ -1,0 +1,10 @@
+name: proglang
+root: ~/pj/proglang
+
+windows:
+  - vim: vim
+  - shell:
+      layout: even-horizontal
+      panes:
+        - sml
+        - la
