@@ -105,11 +105,6 @@ nnoremap <down> <c-w>-
 nnoremap <left> <c-w><
 nnoremap <right> <c-w>>
 
-" Quickly open vimrc
-nnoremap <leader>ve :e<space>~/dotfiles/.vimrc<cr>
-nnoremap <leader>vt :tabe<space>~/dotfiles/.vimrc<cr>
-nnoremap <leader>vv :e<space>~/dotfiles/.vim/vundle.vim<cr>
-
 " Write file with sudo permission
 nnoremap <leader>wf :w<space>!sudo<space>tee<space>%<cr>
 
@@ -156,6 +151,10 @@ nnoremap k gk
 " Saner new split position
 set splitbelow
 set splitright
+
+" Easier splitting
+nnoremap <leader>v :vsplit<cr>
+nnoremap <leader>s :split<cr>
 
 " Quickly insert current date time
 :iab <expr> dts strftime("%Y-%m-%d %H:%M")
