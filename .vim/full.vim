@@ -7,21 +7,19 @@
 
 " Powerline {{{
 " ================================================================
-"python from powerline.vim import setup as powerline_setup
-"python powerline_setup()
-"python del powerline_setup
+Bundle 'Lokaltog/powerline', {'rtp': 'powerline/bindings/vim/'}
 
-"" Fix powerline slow mode switch issue
-"if ! has('gui_running')
-    "set ttimeoutlen=10
-    "augroup FastEscape
-        "autocmd!
-        "" The folowing was commented out b/c it makes it impossible to map
-        "" jj to <Esc>
-        ""au InsertEnter * set timeoutlen=0
-        "au InsertLeave * set timeoutlen=1000
-    "augroup END
-"endif
+" Fix powerline slow mode switch issue
+if ! has('gui_running')
+    set ttimeoutlen=10
+    augroup FastEscape
+        autocmd!
+        " The folowing was commented out b/c it makes it impossible to map
+        " jj to <Esc>
+        "au InsertEnter * set timeoutlen=0
+        au InsertLeave * set timeoutlen=1000
+    augroup END
+endif
 "}}}
 " LanguageTool - somewhat ok grammar check {{{
 " ================================================================
