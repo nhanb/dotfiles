@@ -2,9 +2,9 @@ name: proglang
 root: ~/pj/proglang
 
 windows:
-  - vim: vim
+  - editor: ls -lh
   - shell:
       layout: even-horizontal
       panes:
-        - sml
+        - la
         - la
