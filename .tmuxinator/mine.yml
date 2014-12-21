@@ -3,28 +3,10 @@
 name: mine
 root: ~/open-source/minecraft-playbook
 
-# Optional tmux socket
-# socket_name: foo
-
-# Runs before everything. Use it to start daemons etc.
-# pre: sudo /etc/rc.d/mysqld start
-
-# Runs in each window and pane before window/pane specific commands. Useful for setting up interpreter versions.
-# pre_window: rbenv shell 2.0.0-p247
-
-# Pass command line options to tmux. Useful for specifying a different tmux.conf.
-# tmux_options: -f ~/.tmux.mac.conf
-
-# Change the command to call tmux.  This can be used by derivatives/wrappers like byobu.
-# tmux_command: byobu
-
 windows:
-  - editor: vim
-  - minetest:
-      layout: even-horizontal
-      panes:
-        - server:
-          - ssh mine
-        - shell:
-          - ssh mine
-  - shell: ls
+  - spigot:
+    - ssh mine2g
+    - tmux attach
+  - ssh:
+    - ssh mine2g
+    - cd prod
