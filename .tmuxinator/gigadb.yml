@@ -1,0 +1,10 @@
+name: gigadb
+root: ~/pj/gigadb-website
+
+windows:
+  - vim: vim
+  - dev3:
+    - ssh dev3
+    - cd /var/www/hosts/gigadb.cogini.com/htdocs
+    - . protected/scripts/set_env.sh
+  - shell: ls -lha
