@@ -34,3 +34,4 @@ export PATH=$PATH:$HOME/.cabal/bin
 source ~/.nvm/nvm.sh
 
 export TERM="xterm-256color"
+[[ -s "/home/nhanb/.gvm/scripts/gvm" ]] && source "/home/nhanb/.gvm/scripts/gvm"
