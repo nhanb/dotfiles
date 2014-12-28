@@ -1,0 +1,11 @@
+name: bc-email
+root: ~/pj/bc-email
+
+windows:
+  - vim: vim
+  - devserver:
+      layout: even-horizontal
+      panes:
+        - ls -lha
+        - ls -lha
+  - shell: ls -lha
