@@ -11,6 +11,6 @@ windows:
   - devserver:
       layout: even-horizontal
       panes:
-        - gserve
+        - gaeserv --smtp_host=127.0.0.1 .
         - gulp && gulp watch  # build then watch
   - shell: ll
