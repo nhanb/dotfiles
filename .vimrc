@@ -187,6 +187,7 @@ nnoremap <leader>q :!chmod +x %<cr><cr>:echo 'File is now executable'<cr>
 " Space to center cursor vertically
 " (yeah, zz is an abomination to ergo-minded people... or at least me)
 nnoremap <space> zz
+nnoremap <leader><space> zt
 
 " Close quickfix
 nnoremap <leader>x :cclose<cr>
