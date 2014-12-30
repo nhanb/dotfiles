@@ -35,3 +35,13 @@ source ~/.nvm/nvm.sh
 
 export TERM="xterm-256color"
 [[ -s "/home/nhanb/.gvm/scripts/gvm" ]] && source "/home/nhanb/.gvm/scripts/gvm"
+
+# Command to open man page via vim
+# https://github.com/Z1MM32M4N/vim-superman
+vman() {
+    vim -c "SuperMan $*"
+
+    if [ "$?" != "0" ]; then
+        echo "No manual entry for $*"
+    fi
+}

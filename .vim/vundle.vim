@@ -24,6 +24,7 @@ Bundle 'pangloss/vim-javascript'
 Bundle 'mxw/vim-jsx'
 Bundle 'mitsuhiko/vim-python-combined'
 Bundle 'kien/rainbow_parentheses.vim'
+Bundle 'Z1MM32M4N/vim-superman'
 " }}}
 
 " vim-dispatch by tpope {{{
