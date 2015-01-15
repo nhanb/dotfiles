@@ -19,7 +19,6 @@ Bundle 'tpope/vim-repeat'
 Bundle 'scrooloose/nerdcommenter.git'
 Bundle 'closetag.vim'
 Bundle 'mako.vim'
-Bundle 'gregsexton/MatchTag'
 Bundle 'pangloss/vim-javascript'
 Bundle 'mxw/vim-jsx'
 Bundle 'mitsuhiko/vim-python-combined'
@@ -27,6 +26,18 @@ Bundle 'kien/rainbow_parentheses.vim'
 Bundle 'Z1MM32M4N/vim-superman'
 " }}}
 
+" MatchTagAlways - Highlight HTML tags {{{
+" ================================================================
+Bundle 'Valloric/MatchTagAlways'
+
+let g:mta_filetypes = {
+    \ 'html' : 1,
+    \ 'xhtml' : 1,
+    \ 'xml' : 1,
+    \ 'jinja' : 1,
+    \ 'mako' : 1,
+    \}
+"}}}
 " vim-dispatch by tpope {{{
 " ================================================================
 Bundle 'tpope/vim-dispatch'
