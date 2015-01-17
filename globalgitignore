@@ -1,0 +1,12 @@
+.pyc
+.class
+.log
+.pid
+.errors
+*~
+.o
+a.out
+/.git/*
+
+/chef/chef-cookbooks/*
+/chef/chef-repo/*

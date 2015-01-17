@@ -4,13 +4,4 @@
 *.hi
 .oh-my-zsh/*
 
-.pyc
-.class
-.log
-.pid
-.errors
-*~
-.o
-a.out
-
 .mpv/*
