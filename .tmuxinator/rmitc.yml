@@ -1,6 +1,0 @@
-name: rmitc
-root: ~/pj/rmitc.org
-
-windows:
-    - editor: vim -c NERDTree
-    - server: jekyll serve --watch
