@@ -1,6 +1,8 @@
 name: gigadb
 root: ~/pj/gigadb-website
 
+pre_window: export GIGADB_BOX='centos'
+
 windows:
   - vim: vim
   - dev3:
