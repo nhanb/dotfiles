@@ -22,11 +22,20 @@ Bundle 'sophacles/vim-bundle-mako'
 Bundle 'pangloss/vim-javascript'
 Bundle 'mxw/vim-jsx'
 Bundle 'mitsuhiko/vim-python-combined'
-Bundle 'kien/rainbow_parentheses.vim'
 Bundle 'Z1MM32M4N/vim-superman'
 Bundle 'lilydjwg/fcitx.vim'
+Bundle 'wlangstroth/vim-racket'
 " }}}
 
+" Rainbow parentheses {{{
+" ================================================================
+Bundle 'kien/rainbow_parentheses.vim'
+
+autocmd FileType racket :RainbowParenthesesToggle
+autocmd FileType racket :RainbowParenthesesLoadRound
+autocmd FileType racket :RainbowParenthesesLoadSquare
+autocmd FileType racket :RainbowParenthesesLoadBraces
+" }}}
 " MatchTagAlways - Highlight HTML tags {{{
 " ================================================================
 Bundle 'Valloric/MatchTagAlways'
