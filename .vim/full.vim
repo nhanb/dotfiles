@@ -27,12 +27,6 @@ Bundle 'LanguageTool'
 
 let g:languagetool_jar='$HOME/languagetool/dist/languagetool-commandline.jar'
 "}}}
-" Tern - JavaScript completion engine {{{
-" ================================================================
-Bundle 'marijnh/tern_for_vim'
-
-autocmd FileType javascript setlocal omnifunc=tern#Complete
-"}}}
 " YouCompleteMe - Awesome completion {{{
 " ================================================================
 
