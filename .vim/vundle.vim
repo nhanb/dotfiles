@@ -242,6 +242,10 @@ Bundle 'embear/vim-localvimrc'
 " Store and restore decisions only if answer was in upper case (Y/N/A).
 let g:localvimrc_persistent = 1
 " }}}
+" Enhanced diff - allows switching to Patience diff algo {{{
+" ================================================================
+Bundle 'chrisbra/vim-diff-enhanced'
+" }}}
 " Solarized colorscheme {{{
 " ================================================================
 Bundle 'altercation/vim-colors-solarized'
