@@ -51,7 +51,7 @@ ex ()
 }
 
 # mkdir then cd into it
-function mkdircd () { mkdir -p "$@" && eval cd "\"\$$#\""; }
+function mkcd () { mkdir -p "$@" && eval cd "\"\$$#\""; }
 
 # Moooooooooooar aliases!!
 alias gacm="git add . && git commit -m"
