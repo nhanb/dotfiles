@@ -206,6 +206,7 @@ let g:syntastic_python_checkers=['frosted']
 let g:syntastic_javascript_checkers=['jsxhint']
 let g:syntastic_javascript_jsxhint_exec = 'jsx-jshint-wrapper'
 
+let g:syntastic_ruby_checkers=['rubocop']
 let g:syntastic_sh_checkers=['sh']
 let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_enable_highlighting = 1

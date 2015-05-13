@@ -45,3 +45,7 @@ vman() {
         echo "No manual entry for $*"
     fi
 }
+
+# Rails crap
+alias brails='./bin/rails'
+alias brake='./bin/rake'
