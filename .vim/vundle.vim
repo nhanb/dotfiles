@@ -190,7 +190,9 @@ function! s:CloseIfOnlyNerdTreeLeft()
 endfunction
 
 " Ignore irrelevant files in NERDTree
-let NERDTreeIgnore = [ '\.pyc$', '\.pyo$', '\.py\$class$', '\.obj$', '\.o$', '\.so$', '\.egg$', '^\.git$', '\.gem$',  '\.rbc$', '\~$']
+let NERDTreeIgnore = ['\.pyc$', '\.pyo$', '\.py\$class$', '\.obj$', '\.o$',
+            \'\.so$', '\.egg$', '^\.git$', '\.gem$',  '\.rbc$', '\~$',
+            \ '^__pycache__$']
 
 nnoremap <leader>d <esc>:NERDTree<cr>
 nnoremap <leader>e :NERDTreeToggle<cr>
