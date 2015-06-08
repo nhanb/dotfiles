@@ -199,7 +199,7 @@ nnoremap <leader>e :NERDTreeToggle<cr>
 " ================================================================
 Bundle 'scrooloose/syntastic'
 
-let g:syntastic_python_checkers=['frosted']
+let g:syntastic_python_checkers=['flake8']
 
 " We're actually using syntastic-react here
 " https://github.com/jaxbot/syntastic-react
