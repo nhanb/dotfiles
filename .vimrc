@@ -1,5 +1,6 @@
 " vim:fdm=marker
 set nocompatible               " be iMproved
+set nomodeline
 
 syntax on
 
