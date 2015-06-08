@@ -25,6 +25,7 @@ Bundle 'mitsuhiko/vim-python-combined'
 Bundle 'Z1MM32M4N/vim-superman'
 Bundle 'lilydjwg/fcitx.vim'
 Bundle 'wlangstroth/vim-racket'
+Bundle 'honza/vim-snippets'
 " }}}
 
 " Rainbow parentheses {{{
@@ -200,6 +201,12 @@ nnoremap <leader>e :NERDTreeToggle<cr>
 " Syntastic {{{
 " ================================================================
 Bundle 'scrooloose/syntastic'
+
+
+let g:syntastic_mode_map = {
+      \ "mode": "active",
+      \ "active_filetypes": [],
+      \ "passive_filetypes": ["rst"] }
 
 let g:syntastic_python_checkers=['flake8']
 
