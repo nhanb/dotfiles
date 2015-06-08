@@ -219,6 +219,8 @@ let g:syntastic_loc_list_height=5
 Bundle 'airblade/vim-rooter'
 
 let g:rooter_change_directory_for_non_project_files = 1
+let g:rooter_silent_chdir = 1
+
 " }}}
 " Emmet-vim {{{
 " ================================================================
