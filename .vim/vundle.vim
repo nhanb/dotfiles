@@ -20,12 +20,18 @@ Bundle 'scrooloose/nerdcommenter.git'
 Bundle 'closetag.vim'
 Bundle 'sophacles/vim-bundle-mako'
 Bundle 'pangloss/vim-javascript'
-Bundle 'mxw/vim-jsx'
 Bundle 'mitsuhiko/vim-python-combined'
 Bundle 'Z1MM32M4N/vim-superman'
 Bundle 'lilydjwg/fcitx.vim'
 Bundle 'wlangstroth/vim-racket'
 Bundle 'honza/vim-snippets'
+" }}}
+
+" Vim JSX {{{
+" ================================================================
+Bundle 'mxw/vim-jsx'
+
+let g:jsx_ext_required = 0
 " }}}
 
 " Rainbow parentheses {{{
