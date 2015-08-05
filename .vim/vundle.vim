@@ -216,10 +216,7 @@ let g:syntastic_mode_map = {
 
 let g:syntastic_python_checkers=['flake8']
 
-" We're actually using syntastic-react here
-" https://github.com/jaxbot/syntastic-react
-let g:syntastic_javascript_checkers=['jsxhint']
-let g:syntastic_javascript_jsxhint_exec = 'jsx-jshint-wrapper'
+let g:syntastic_javascript_checkers=['eslint']
 
 let g:syntastic_ruby_checkers=['rubocop']
 let g:syntastic_sh_checkers=['sh']
