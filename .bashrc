@@ -29,3 +29,6 @@ export MYVIM=plugins  # only pull pure vimscript plugins
 # prompt
 PS1='[\u@\h \W]\$ '
 BROWSER=/usr/bin/xdg-open
+
+# added by travis gem
+[ -f /home/nhanb/.travis/travis.sh ] && source /home/nhanb/.travis/travis.sh
