@@ -150,13 +150,6 @@ let g:UltiSnipsJumpForwardTrigger = '<c-j>'
 let g:UltiSnipsJumpBackwardTrigger = '<c-k>'
 "let g:UltiSnipsListSnippets = '<c-m>'
 " }}}
-" Slimux - vim-tmux integration {{{
-" ================================================================
-Bundle 'epeli/slimux'
-
-nnoremap <Leader>t :SlimuxREPLSendLine<CR>
-vnoremap <Leader>t :SlimuxREPLSendSelection<CR>
-" }}}
 " CtrlP {{{
 " ================================================================
 Bundle 'kien/ctrlp.vim'
