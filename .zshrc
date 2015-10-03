@@ -53,3 +53,6 @@ alias brake='./bin/rake'
 # GitHub's hub
 export GOPATH="$HOME/gocode"
 export PATH="$PATH:$GOPATH/bin"
+
+# Vagrant
+alias vag='vagrant'
