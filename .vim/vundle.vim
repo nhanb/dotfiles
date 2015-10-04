@@ -197,6 +197,7 @@ let NERDTreeIgnore = ['\.pyc$', '\.pyo$', '\.py\$class$', '\.obj$', '\.o$',
 
 nnoremap <leader>d <esc>:NERDTree<cr>
 nnoremap <leader>e :NERDTreeToggle<cr>
+nnoremap <leader>f :NERDTreeFind<cr>
 " }}}
 " Syntastic {{{
 " ================================================================
