@@ -25,6 +25,7 @@ Bundle 'Z1MM32M4N/vim-superman'
 Bundle 'lilydjwg/fcitx.vim'
 Bundle 'wlangstroth/vim-racket'
 Bundle 'honza/vim-snippets'
+Bundle 'pearofducks/ansible-vim'
 " }}}
 
 " Vim JSX {{{
