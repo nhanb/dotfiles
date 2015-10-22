@@ -39,7 +39,7 @@ let g:jsx_ext_required = 0
 " ================================================================
 Bundle 'kien/rainbow_parentheses.vim'
 
-autocmd FileType racket :RainbowParenthesesToggle
+autocmd FileType racket :RainbowParenthesesActivate
 autocmd FileType racket :RainbowParenthesesLoadRound
 autocmd FileType racket :RainbowParenthesesLoadSquare
 autocmd FileType racket :RainbowParenthesesLoadBraces
