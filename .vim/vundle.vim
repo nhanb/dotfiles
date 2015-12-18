@@ -27,6 +27,7 @@ Bundle 'wlangstroth/vim-racket'
 Bundle 'honza/vim-snippets'
 Bundle 'pearofducks/ansible-vim'
 Bundle 'editorconfig/editorconfig-vim'
+Bundle 'mustache/vim-mustache-handlebars'
 " }}}
 
 " Vim JSX {{{
