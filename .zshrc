@@ -57,3 +57,6 @@ export PATH="$PATH:$GOPATH/bin"
 
 # Vagrant
 alias vag='vagrant'
+
+# lol http://docs.ansible.com/ansible/faq.html#how-do-i-disable-cowsay
+export ANSIBLE_NOCOWS=1
