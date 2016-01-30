@@ -28,7 +28,13 @@ Bundle 'honza/vim-snippets'
 Bundle 'pearofducks/ansible-vim'
 Bundle 'editorconfig/editorconfig-vim'
 Bundle 'mustache/vim-mustache-handlebars'
-Bundle 'lambdatoast/elm.vim'
+" }}}
+
+" ElmCast's elm-vim {{{
+" ================================================================
+Bundle 'ElmCast/elm-vim'
+
+let g:elm_format_autosave = 1
 " }}}
 
 " Vim JSX {{{
