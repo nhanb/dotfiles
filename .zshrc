@@ -17,6 +17,7 @@ alias devchrome="google-chrome-stable --user-data-dir=\"$HOME/tmp/chrome_dev_ses
 alias pserve='python2 -m SimpleHTTPServer'
 alias pshow='pass show -c'
 alias zipdirs='for i in */; do zip -r "${i%/}.zip" "$i"; done'
+alias cbzdirs='for i in */; do zip -r "${i%/}.cbz" "$i"; done'
 
 # Google App Engine (Python WTF!)
 export GAE_PATH="$HOME/google_appengine"
