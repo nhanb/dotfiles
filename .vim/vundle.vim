@@ -37,7 +37,7 @@ Bundle 'ElmCast/elm-vim'
 let g:elm_format_autosave = 1
 
 " gotta add this too since elm-vim's indentation is ass
-Bundle 'lambdatoast/elm.vim'
+"Bundle 'lambdatoast/elm.vim'
 " }}}
 
 " Vim JSX {{{
