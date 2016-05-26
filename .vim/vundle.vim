@@ -238,6 +238,9 @@ let NERDTreeIgnore = ['\.pyc$', '\.pyo$', '\.py\$class$', '\.obj$', '\.o$',
 nnoremap <leader>d <esc>:NERDTree<cr>
 nnoremap <leader>e :NERDTreeToggle<cr>
 nnoremap <leader>f :NERDTreeFind<cr>
+
+" Show git signs too because why not?
+Plugin 'Xuyuanp/nerdtree-git-plugin'
 " }}}
 " Syntastic {{{
 " ================================================================
@@ -263,7 +266,6 @@ let g:syntastic_loc_list_height=5
 " ================================================================
 Bundle 'airblade/vim-rooter'
 
-let g:rooter_change_directory_for_non_project_files = 1
 let g:rooter_silent_chdir = 1
 
 " }}}
