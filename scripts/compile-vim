@@ -2,7 +2,7 @@
 
 cd ~/open-source/vim
 
-hg pull && hg update
+git pull
 
 make clean
 make distclean
