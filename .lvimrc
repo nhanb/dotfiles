@@ -1,3 +1,4 @@
+set foldmethod=marker
 let g:ctrlp_show_hidden = 1
 let NERDTreeShowHidden=1
 

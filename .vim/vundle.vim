@@ -29,7 +29,20 @@ Bundle 'pearofducks/ansible-vim'
 Bundle 'editorconfig/editorconfig-vim'
 Bundle 'mustache/vim-mustache-handlebars'
 " }}}
+"
+" vim-test {{{
+" ================================================================
+Bundle 'janko-m/vim-test'
 
+let test#strategy = "dispatch"
+
+nnoremap <leader>tf :TestFile<cr>
+nnoremap <leader>tn :TestNearest<cr>
+nnoremap <leader>tt :TestNearest<cr>
+nnoremap <leader>tl :TestLast<cr>
+nnoremap <leader>tv :TestVisit<cr>
+nnoremap <leader>ts :TestSuite<cr>
+" }}}
 " ElmCast's elm-vim {{{
 " ================================================================
 Bundle 'ElmCast/elm-vim'
@@ -39,14 +52,12 @@ let g:elm_format_autosave = 1
 " gotta add this too since elm-vim's indentation is ass
 "Bundle 'lambdatoast/elm.vim'
 " }}}
-
 " Vim JSX {{{
 " ================================================================
 Bundle 'mxw/vim-jsx'
 
 let g:jsx_ext_required = 0
 " }}}
-
 " Rainbow parentheses {{{
 " ================================================================
 Bundle 'kien/rainbow_parentheses.vim'
