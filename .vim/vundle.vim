@@ -48,6 +48,10 @@ nnoremap <leader>ts :TestSuite<cr>
 Bundle 'ElmCast/elm-vim'
 
 let g:elm_format_autosave = 1
+let g:ycm_semantic_triggers = {
+            \ 'elm' : ['.'],
+            \}
+let g:elm_setup_keybindings = 0
 
 " gotta add this too since elm-vim's indentation is ass
 "Bundle 'lambdatoast/elm.vim'
