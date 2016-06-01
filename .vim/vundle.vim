@@ -257,9 +257,8 @@ let g:syntastic_mode_map = {
       \ "passive_filetypes": ["rst"] }
 
 let g:syntastic_python_checkers=['flake8']
-
-let g:syntastic_javascript_checkers=['eslint_d']
-
+let g:syntastic_javascript_checkers = ['eslint']
+let g:syntastic_javascript_eslint_exec = 'eslint_d'
 let g:syntastic_ruby_checkers=['rubocop']
 let g:syntastic_sh_checkers=['sh']
 let g:syntastic_always_populate_loc_list = 1
