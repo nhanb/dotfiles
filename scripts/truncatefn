@@ -1,0 +1,27 @@
+#!/usr/bin/env bash
+#
+# Bash Script to truncate file names
+# Use this to deal with ecryptfs' 143-char limit
+set -e
+
+ROOT="$1"
+SIZE=110
+
+find "$ROOT" -type f | \
+    while read filepath1; do
+        path=$(dirname "$filepath1")
+        file1=$(basename "$filepath1")
+        name1=${file1%.*}
+        extn=${file1##*.}
+        if [ ${#name1} -gt $SIZE ] ; then
+            name2=$(echo $name1 | cut -c1-$SIZE)
+            file2="${name2}.${extn}"
+            filepath2="$path/$file2"
+            echo "1 :: $filepath1"
+            echo "2 :: $filepath2"
+            mv "$filepath1" "$filepath2"
+        else
+            # echo $name1
+            :
+        fi
+    done
