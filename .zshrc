@@ -61,3 +61,6 @@ alias vag='vagrant'
 
 # lol http://docs.ansible.com/ansible/faq.html#how-do-i-disable-cowsay
 export ANSIBLE_NOCOWS=1
+
+# I install lektor here
+export PATH="$PATH:$HOME/.local/bin"
