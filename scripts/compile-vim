@@ -10,6 +10,7 @@ make distclean
 ./configure \
     --prefix=$HOME/local \
     --with-features=huge \
+    --with-x \
     --enable-pythoninterp \
     --enable-gui=gtk2
 make
