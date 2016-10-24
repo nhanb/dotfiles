@@ -78,7 +78,7 @@ set relativenumber
 
 " Change the leader key from \ to ,
 let mapleader=","
-noremap \ ,
+noremap \ <nop>
 
 " ---- Esc alternatives ----
 inoremap jj <esc>
@@ -250,4 +250,9 @@ if executable('ag')
 
   " ag is fast enough that CtrlP doesn't need to cache
   let g:ctrlp_use_caching = 0
+
+  " bind \ (backward slash) to grep shortcut
+  command -nargs=+ -complete=file -bar Ag silent! grep! <args>|cwindow|redraw!
+  nnoremap \ :Ag<space>
+  nnoremap <leader>ge :Ag<space>
 endif

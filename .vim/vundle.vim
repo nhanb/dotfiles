@@ -150,9 +150,6 @@ nnoremap <leader>glp :Gtabedit! log -p<cr>
 nnoremap <leader>gff :Gtabedit! diff<cr>
 nnoremap <leader>gfc :Gtabedit! diff --cached<cr>
 
-" Grep
-nnoremap <leader>ge :Gtabedit! grep 
-
 " Open current file in master
 nnoremap <leader>got :Gtabedit master:%<cr>
 nnoremap <leader>gos :Gsplit master:%<cr>
