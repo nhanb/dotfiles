@@ -30,6 +30,20 @@ alias gserve='gaeserv .'
 export WORKON_HOME=$HOME/virtualenvs
 [ -f /usr/local/bin/virtualenvwrapper.sh ] && source /usr/local/bin/virtualenvwrapper.sh
 
+
+# Quality-of-life helpers for python3's venv:
+mkvenv() {
+    python3 -m venv "$HOME/.venvs/$1"
+}
+actvenv() {
+    local VENV_BIN="$HOME/.venvs/$1/bin/activate"
+    if [ -f "$VENV_BIN" ]; then
+        source "$VENV_BIN"
+    else
+        echo "$fg[red]$VENV_BIN doesn't exists!"
+    fi
+}
+
 export PATH=$PATH:$HOME/.rvm/bin
 [ -f /home/nhanb/.travis/travis.sh ] && source /home/nhanb/.travis/travis.sh
 export PATH=$PATH:$HOME/.cabal/bin
