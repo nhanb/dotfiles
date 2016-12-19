@@ -28,12 +28,14 @@ alias gserve='gaeserv .'
 
 # virtualenv
 export WORKON_HOME=$HOME/virtualenvs
-source /usr/local/bin/virtualenvwrapper.sh
+[ -f /usr/local/bin/virtualenvwrapper.sh ] && source /usr/local/bin/virtualenvwrapper.sh
 
 export PATH=$PATH:$HOME/.rvm/bin
 [ -f /home/nhanb/.travis/travis.sh ] && source /home/nhanb/.travis/travis.sh
 export PATH=$PATH:$HOME/.cabal/bin
-source ~/.nvm/nvm.sh
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh" # This loads nvm
 
 export TERM="xterm-256color"
 [[ -s "/home/nhanb/.gvm/scripts/gvm" ]] && source "/home/nhanb/.gvm/scripts/gvm"
