@@ -205,9 +205,9 @@ if has('clipboard')
     nnoremap <leader>p "+p
 elseif executable('xsel')
     vnoremap <leader>y :w !xsel -i -b<cr><cr>
-                \:echo 'Selection yanked to system clipboard'<cr>
+                \:echo 'Selection yanked to system clipboard using xsel'<cr>
     nnoremap <leader>y V:w !xsel -i -b<cr><cr>
-                \:echo '1 line yanked to system clipboard'<cr>
+                \:echo '1 line yanked to system clipboard using xsel'<cr>
     nnoremap <leader>p :silent :r !xsel -o -b<cr>
 else
     function! NoClipboardWarning()

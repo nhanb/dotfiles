@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+set -e
+
 cd ~/open-source/vim
 
 git pull
@@ -12,7 +14,9 @@ make distclean
     --with-features=huge \
     --with-x \
     --enable-pythoninterp \
+    --enable-python3interp \
     --enable-gui=gtk2
+
 make
 make install
 
