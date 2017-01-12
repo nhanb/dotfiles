@@ -48,6 +48,13 @@ export PATH=$PATH:$HOME/.rvm/bin
 [ -f /home/nhanb/.travis/travis.sh ] && source /home/nhanb/.travis/travis.sh
 export PATH=$PATH:$HOME/.cabal/bin
 
+# Helper function: prepend into PATH if not already in there
+pupdate() { case ":${PATH:=$1}:" in *:$1:*) ;; *) PATH="$1:$PATH" ;; esac; }
+if type ruby > /dev/null; then
+    local GEM_BIN=$(ruby -rubygems -e "puts Gem.user_dir")/bin
+    pupdate $GEM_BIN
+fi
+
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh" # This loads nvm
 
