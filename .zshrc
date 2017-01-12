@@ -28,7 +28,11 @@ alias gserve='gaeserv .'
 
 # virtualenv
 export WORKON_HOME=$HOME/virtualenvs
-[ -f /usr/local/bin/virtualenvwrapper.sh ] && source /usr/local/bin/virtualenvwrapper.sh
+if [[ "`uname -r`" == *-ARCH ]]; then
+    [ -f /usr/bin/virtualenvwrapper.sh ] && source /usr/bin/virtualenvwrapper.sh
+else
+    [ -f /usr/local/bin/virtualenvwrapper.sh ] && source /usr/local/bin/virtualenvwrapper.sh
+fi
 
 
 # Quality-of-life helpers for python3's venv:
