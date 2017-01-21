@@ -25,11 +25,17 @@ Bundle 'Z1MM32M4N/vim-superman'
 Bundle 'lilydjwg/fcitx.vim'
 Bundle 'wlangstroth/vim-racket'
 Bundle 'honza/vim-snippets'
-Bundle 'pearofducks/ansible-vim'
 Bundle 'editorconfig/editorconfig-vim'
 Bundle 'mustache/vim-mustache-handlebars'
 " }}}
 "
+" Ansible-vim {{{
+" ================================================================
+Bundle 'pearofducks/ansible-vim'
+
+let g:ansible_extra_syntaxes = "sh.vim ruby.vim python.vim"
+
+" }}}
 " vim-test {{{
 " ================================================================
 Bundle 'janko-m/vim-test'
