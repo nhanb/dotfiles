@@ -240,19 +240,25 @@ endif
 exec "set listchars=tab:\uBB\uBB,trail:\uB7,nbsp:~"
 set list
 
-" The Silver Searcher - snippet snatched from Thoughtbot
-if executable('ag')
-  " Use ag over grep
-  set grepprg=ag\ --nogroup\ --nocolor
+if executable('rg')
+    " RipGrep - faster than Ag, supposedly respects gitignore better
+    set grepprg=rg\ --vimgrep
+    let g:ctrlp_user_command = 'rg %s --files --color=never --hidden'
+    command -nargs=+ -complete=file -bar Rg silent! grep! <args>|cwindow|redraw!
+    nnoremap <leader>ge :Rg<space>
 
-  " Use ag in CtrlP for listing files. Lightning fast and respects .gitignore
-  let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
+elseif executable('ag')
+    " The Silver Searcher - snippet snatched from Thoughtbot
+    " Use ag over grep
+    set grepprg=ag\ --nogroup\ --nocolor
 
-  " ag is fast enough that CtrlP doesn't need to cache
-  let g:ctrlp_use_caching = 0
+    " Use ag in CtrlP for listing files. Lightning fast and respects .gitignore
+    let g:ctrlp_user_command = 'rg %s --files --color=never --hidden'
 
-  " bind \ (backward slash) to grep shortcut
-  command -nargs=+ -complete=file -bar Ag silent! grep! <args>|cwindow|redraw!
-  nnoremap \ :Ag<space>
-  nnoremap <leader>ge :Ag<space>
+    " ag is fast enough that CtrlP doesn't need to cache
+    let g:ctrlp_use_caching = 0
+
+    " simple grep-like command
+    command -nargs=+ -complete=file -bar Ag silent! grep! <args>|cwindow|redraw!
+    nnoremap <leader>ge :Ag<space>
 endif

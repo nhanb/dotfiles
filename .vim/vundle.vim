@@ -194,7 +194,7 @@ let g:UltiSnipsJumpBackwardTrigger = '<c-k>'
 " }}}
 " CtrlP {{{
 " ================================================================
-Bundle 'kien/ctrlp.vim'
+Bundle 'ctrlpvim/ctrlp.vim'
 
 nnoremap <leader>o :CtrlPMixed<cr>
 nnoremap <leader>b :CtrlPBuffer<cr>
