@@ -4,6 +4,4 @@
 *.hi
 .oh-my-zsh/*
 
-.mpv/*
-
 .git/*
