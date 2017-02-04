@@ -53,8 +53,8 @@ let g:ycm_semantic_triggers = {
             \}
 let g:elm_setup_keybindings = 0
 
-" gotta add this too since elm-vim's indentation is ass
-"Bundle 'lambdatoast/elm.vim'
+" https://github.com/ElmCast/elm-vim/issues/91
+let g:syntastic_elm_checkers = ['elm_make']
 " }}}
 " Vim JSX {{{
 " ================================================================
