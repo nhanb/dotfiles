@@ -1,5 +1,6 @@
 .netrwhist
 /.vim/bundle
+/.vim/view
 
 *.hi
 /.oh-my-zsh
