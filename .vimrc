@@ -242,8 +242,9 @@ set list
 
 if executable('rg')
     " RipGrep - faster than Ag, supposedly respects gitignore better
-    set grepprg=rg\ --vimgrep
-    let g:ctrlp_user_command = 'rg %s --files --color=never --hidden'
+    set grepprg=rg\ --vimgrep\ --hidden
+    let g:ctrlp_user_command = 'rg --files --color=never --hidden %s'
+    let g:ctrlp_use_caching = 0
     command -nargs=+ -complete=file -bar Rg silent! grep! <args>|cwindow|redraw!
     nnoremap <leader>ge :Rg<space>
 
@@ -253,7 +254,7 @@ elseif executable('ag')
     set grepprg=ag\ --nogroup\ --nocolor
 
     " Use ag in CtrlP for listing files. Lightning fast and respects .gitignore
-    let g:ctrlp_user_command = 'rg %s --files --color=never --hidden'
+    let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
 
     " ag is fast enough that CtrlP doesn't need to cache
     let g:ctrlp_use_caching = 0

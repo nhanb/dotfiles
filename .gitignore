@@ -1,7 +1,7 @@
 .netrwhist
-.vim/bundle/*
+/.vim/bundle
 
 *.hi
-.oh-my-zsh/*
+/.oh-my-zsh
 
-.git/*
+.git

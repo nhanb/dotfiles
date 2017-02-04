@@ -92,6 +92,4 @@ export ANSIBLE_NOCOWS=1
 # I install lektor here
 export PATH="$PATH:$HOME/.local/bin"
 
-# Global agignore
-alias ag="ag --path-to-ignore ~/.agignore"
 [[ -s "$HOME/.avn/bin/avn.sh" ]] && source "$HOME/.avn/bin/avn.sh" # load avn
