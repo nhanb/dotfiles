@@ -244,24 +244,9 @@ nnoremap <leader>f :NERDTreeFind<cr>
 " Show git signs too because why not?
 Plugin 'Xuyuanp/nerdtree-git-plugin'
 " }}}
-" Syntastic {{{
+" Ale {{{
 " ================================================================
-Bundle 'scrooloose/syntastic'
-
-
-let g:syntastic_mode_map = {
-      \ "mode": "active",
-      \ "active_filetypes": [],
-      \ "passive_filetypes": ["rst"] }
-
-let g:syntastic_python_checkers=['flake8']
-let g:syntastic_javascript_checkers = ['eslint']
-let g:syntastic_javascript_eslint_exec = 'eslint_d'
-let g:syntastic_ruby_checkers=['rubocop']
-let g:syntastic_sh_checkers=['sh']
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_enable_highlighting = 1
-let g:syntastic_loc_list_height=5
+Bundle 'w0rp/ale'
 " }}}
 " vim-rooter - automatically chdir to project root {{{
 " ================================================================
