@@ -284,6 +284,16 @@ let g:localvimrc_persistent = 1
 " ================================================================
 Bundle 'chrisbra/vim-diff-enhanced'
 " }}}
+" vim-ledger {{{
+" ================================================================
+Bundle 'ledger/vim-ledger'
+
+if exists('g:ycm_filetype_blacklist')
+    call extend(g:ycm_filetype_blacklist, { 'ledger': 1 })
+endif
+
+let g:ledger_extra_options = '--pedantic --explicit --check-payees'
+" }}}
 " Solarized colorscheme {{{
 " ================================================================
 Bundle 'altercation/vim-colors-solarized'
