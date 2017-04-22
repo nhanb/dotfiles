@@ -28,10 +28,12 @@ alias gserve='gaeserv .'
 
 # virtualenv
 export WORKON_HOME=$HOME/virtualenvs
-if [[ "`uname -r`" == *-ARCH ]]; then
-    [ -f /usr/bin/virtualenvwrapper.sh ] && source /usr/bin/virtualenvwrapper.sh
-else
-    [ -f /usr/local/bin/virtualenvwrapper.sh ] && source /usr/local/bin/virtualenvwrapper.sh
+if [ "$PIPENV_ACTIVE" != '1' ]; then
+    if [[ "`uname -r`" == *-ARCH ]]; then
+        [ -f /usr/bin/virtualenvwrapper.sh ] && source /usr/bin/virtualenvwrapper.sh
+    else
+        [ -f /usr/local/bin/virtualenvwrapper.sh ] && source /usr/local/bin/virtualenvwrapper.sh
+    fi
 fi
 
 
