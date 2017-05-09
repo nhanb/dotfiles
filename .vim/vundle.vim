@@ -30,6 +30,13 @@ Bundle 'editorconfig/editorconfig-vim'
 Bundle 'mustache/vim-mustache-handlebars'
 " }}}
 "
+" localvimrc - Project-specific vimrc {{{
+" ================================================================
+Bundle 'embear/vim-localvimrc'
+
+" Store and restore decisions only if answer was in upper case (Y/N/A).
+let g:localvimrc_persistent = 1
+" }}}
 " vim-test {{{
 " ================================================================
 Bundle 'janko-m/vim-test'
@@ -273,13 +280,6 @@ nnoremap <silent> <c-k> :TmuxNavigateUp<cr>
 nnoremap <silent> <c-l> :TmuxNavigateRight<cr>
 nnoremap <silent> <c-\> :TmuxNavigatePrevious<cr>
 " }}}
-" localvimrc - Project-specific vimrc {{{
-" ================================================================
-Bundle 'embear/vim-localvimrc'
-
-" Store and restore decisions only if answer was in upper case (Y/N/A).
-let g:localvimrc_persistent = 1
-" }}}
 " Enhanced diff - allows switching to Patience diff algo {{{
 " ================================================================
 Bundle 'chrisbra/vim-diff-enhanced'
@@ -294,6 +294,40 @@ endif
 
 let g:ledger_extra_options = '--pedantic --explicit --check-payees'
 " }}}
+" Vim-gitgutter - Provides modified git info for airline {{{
+" ================================================================
+Bundle 'airblade/vim-gitgutter'
+
+" I just want airline integration, not gutter symbols => disable them
+let g:gitgutter_signs = 0
+" }}}
+" Airline {{{
+" ================================================================
+Bundle 'vim-airline/vim-airline'
+Bundle 'vim-airline/vim-airline-themes'
+let g:airline_powerline_fonts = 1
+let g:airline_theme='powerlineish'
+
+" Fix slow mode switch issue
+if ! has('gui_running')
+    set ttimeoutlen=10
+endif
+
+" I don't really need section y (encoding type and shit), so truncate it
+" at width 100.
+let g:airline#extensions#default#section_truncate_width = {
+            \ 'b': 79,
+            \ 'x': 60,
+            \ 'y': 100,
+            \ 'z': 45,
+            \ }
+
+" Removed the tagbar message. It's rarely useful but often obscures the
+" file name (which is obviously more important)
+let g:airline_section_x = '%{airline#util#wrap(airline#parts#filetype(),0)}'
+
+let g:airline#extensions#hunks#non_zero_only = 1
+"}}}
 " Solarized colorscheme {{{
 " ================================================================
 Bundle 'altercation/vim-colors-solarized'
@@ -312,42 +346,6 @@ hi MatchParen ctermfg=123
 
 if $MYVIM == "full"
     so $HOME/.vim/full.vim
-else
-    " Vim-gitgutter - Provides modified git info for airline {{{
-    " ================================================================
-    Bundle 'airblade/vim-gitgutter'
-
-    " I just want airline integration, not gutter symbols => disable them
-    let g:gitgutter_signs = 0
-    " }}}
-    " Airline {{{
-    " ================================================================
-    Bundle 'bling/vim-airline'
-    let g:airline_powerline_fonts = 1
-    let g:airline_left_sep=''
-    let g:airline_right_sep=''
-    let g:airline_theme='powerlineish'
-
-    " Fix slow mode switch issue
-    if ! has('gui_running')
-        set ttimeoutlen=10
-    endif
-
-    " I don't really need section y (encoding type and shit), so truncate it
-    " at width 100.
-    let g:airline#extensions#default#section_truncate_width = {
-                \ 'b': 79,
-                \ 'x': 60,
-                \ 'y': 100,
-                \ 'z': 45,
-                \ }
-
-    " Removed the tagbar message. It's rarely useful but often obscures the
-    " file name (which is obviously more important)
-    let g:airline_section_x = '%{airline#util#wrap(airline#parts#filetype(),0)}'
-
-    let g:airline#extensions#hunks#non_zero_only = 1
-    "}}}
 endif
 
 filetype plugin indent on     " required!
