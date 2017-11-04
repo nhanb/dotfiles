@@ -6,7 +6,6 @@
 
 # Whatever comes below is supposed to work well on both bash and zsh.
 
-export TERM="xterm-256color"
 export EDITOR=vim  # vim rules emacs drools woo! (kidding...)
 
 # Add manually compiled binaries & homegrown scripts to PATH

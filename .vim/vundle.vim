@@ -339,8 +339,6 @@ hi Folded cterm=None ctermfg=166
 hi CursorLineNr ctermfg=112 cterm=bold
 hi SignColumn ctermbg=8
 hi MatchParen ctermfg=123
-"set t_Co=256
-"let g:solarized_termcolors=256
 " }}}
 
 if $MYVIM == "full"
