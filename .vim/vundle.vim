@@ -300,7 +300,7 @@ Bundle 'airblade/vim-gitgutter'
 " I just want airline integration, not gutter symbols => disable them
 let g:gitgutter_signs = 0
 " }}}
-" Vim-autoformat - Format on save if formatter is available
+" Vim-autoformat - Format on save if formatter is available {{{
 " ================================================================
 Bundle 'Chiel92/vim-autoformat'
 
