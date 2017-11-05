@@ -49,7 +49,7 @@ set undolevels=7777      " use many muchos levels of undo
 set wildignore=*.swp,*.bak,*.pyc,*.class
 set title                " change the terminal's title
 set noerrorbells         " don't beep
-set colorcolumn=80       " 80-character indicator line
+set colorcolumn=+1       " draw colorcolumn 1 char after max textwidth
 
 " Keep temporary files in mybackupdir
 let mybackupdir=$HOME.'/.vim_backup'
