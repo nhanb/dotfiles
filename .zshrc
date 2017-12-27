@@ -98,3 +98,8 @@ export ANSIBLE_NOCOWS=1
 export PATH="$PATH:$HOME/.local/bin"
 
 [[ -s "$HOME/.avn/bin/avn.sh" ]] && source "$HOME/.avn/bin/avn.sh" # load avn
+
+# Pipenv quality-of-life stuff
+alias peactivate='source `pipenv --venv`/bin/activate'
+alias perun='pipenv run'
+alias pepy='pipenv run python'
