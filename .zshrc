@@ -61,7 +61,7 @@ export PATH=$PATH:$HOME/.cabal/bin
 # Helper function: prepend into PATH if not already in there
 pupdate() { case ":${PATH:=$1}:" in *:$1:*) ;; *) PATH="$1:$PATH" ;; esac; }
 if type ruby > /dev/null; then
-    local GEM_BIN=$(ruby -rubygems -e "puts Gem.user_dir")/bin
+    local GEM_BIN=$(ruby -e "puts Gem.user_dir")/bin
     pupdate $GEM_BIN
 fi
 
