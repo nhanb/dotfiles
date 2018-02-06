@@ -196,6 +196,9 @@ nnoremap <leader>x :cclose<cr>:lclose<cr>
 " Remap Y to 'yank till end of line' to make it consistent with C, D
 map Y y$
 
+" Go to previously open file (basically like alt-tab toggle)
+nnoremap <leader><tab> <c-^>
+
 " Use '+' register or xsel to do system clipboard stuff {{{
 if has('clipboard')
     vnoremap <leader>y "+y
