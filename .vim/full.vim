@@ -28,4 +28,5 @@ let g:ycm_filetype_blacklist = {
 
 " Jump to definition, else declaration (YouCompleteMe stuff)
 nnoremap <f3> :YcmCompleter<space>GoToDefinitionElseDeclaration<cr>
+nnoremap <c-g> :YcmCompleter<space>GoToReferences<cr>
 "}}}
