@@ -206,6 +206,35 @@ Bundle 'ctrlpvim/ctrlp.vim'
 nnoremap <leader>o :CtrlPMixed<cr>
 nnoremap <leader>b :CtrlPBuffer<cr>
 nnoremap <leader>r :CtrlPMRU<cr>
+
+if executable('rg')
+    " RipGrep - faster than Ag
+    set grepprg=rg\ --vimgrep\ --hidden\ --no-heading
+
+    " Fuzzy file searching
+    let g:ctrlp_user_command = 'rg --files --no-ignore-vcs --hidden --follow --ignore-file ~/dotfiles/rgignore %s'
+    let g:ctrlp_use_caching = 0
+
+    " Content searching
+    command -nargs=+ -complete=file -bar Rg silent! grep! <args>|cwindow|redraw!
+    nnoremap <Leader>ge :Rg<Space>
+    nnoremap <Leader>a :Rg<Space>
+
+elseif executable('ag')
+    " The Silver Searcher - snippet snatched from Thoughtbot
+    " Use ag over grep
+    set grepprg=ag\ --nogroup\ --nocolor
+
+    " Use ag in CtrlP for listing files. Lightning fast and respects .gitignore
+    let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
+
+    " ag is fast enough that CtrlP doesn't need to cache
+    let g:ctrlp_use_caching = 0
+
+    " simple grep-like command
+    command -nargs=+ -complete=file -bar Ag silent! grep! <args>|cwindow|redraw!
+    nnoremap <leader>ge :Ag<space>
+endif
 "}}}
 " Tagbar {{{
 " ================================================================
