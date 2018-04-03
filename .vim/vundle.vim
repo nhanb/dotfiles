@@ -22,11 +22,12 @@ Bundle 'sophacles/vim-bundle-mako'
 Bundle 'pangloss/vim-javascript'
 Bundle 'mitsuhiko/vim-python-combined'
 Bundle 'Z1MM32M4N/vim-superman'
-Bundle 'lilydjwg/fcitx.vim'
+"Bundle 'lilydjwg/fcitx.vim'
 Bundle 'wlangstroth/vim-racket'
 Bundle 'honza/vim-snippets'
 Bundle 'pearofducks/ansible-vim'
 Bundle 'mustache/vim-mustache-handlebars'
+Bundle 'chrisbra/csv.vim'
 " }}}
 "
 " localvimrc - Project-specific vimrc {{{
@@ -62,6 +63,12 @@ let g:elm_setup_keybindings = 0
 " https://github.com/ElmCast/elm-vim/issues/91
 let g:syntastic_elm_checkers = ['elm_make']
 let g:elm_syntastic_show_warnings = 1
+" }}}
+" Vim scratchpad {{{
+" ================================================================
+Bundle 'Konfekt/vim-scratchpad'
+
+let g:scratchpad_path = '/home/nhanb/.scratchpads'
 " }}}
 " Vim JSX {{{
 " ================================================================
@@ -209,10 +216,10 @@ nnoremap <leader>r :CtrlPMRU<cr>
 
 if executable('rg')
     " RipGrep - faster than Ag
-    set grepprg=rg\ --vimgrep\ --hidden\ --no-heading
+    set grepprg=rg\ --vimgrep\ --hidden\ --no-heading\ --no-messages
 
     " Fuzzy file searching
-    let g:ctrlp_user_command = 'rg --files --no-ignore-vcs --hidden --follow --ignore-file ~/dotfiles/rgignore %s'
+    let g:ctrlp_user_command = 'rg --no-messages --files --no-ignore-vcs --hidden --follow --ignore-file ~/dotfiles/rgignore %s'
     let g:ctrlp_use_caching = 0
 
     " Content searching
@@ -334,7 +341,7 @@ let g:gitgutter_signs = 0
 Bundle 'Chiel92/vim-autoformat'
 
 nnoremap <leader><leader>f :Autoformat<cr>
-autocmd BufWrite *.py :Autoformat
+"autocmd BufWrite *.py :Autoformat
 " }}}
 " Airline {{{
 " ================================================================
@@ -357,11 +364,12 @@ let g:airline#extensions#default#section_truncate_width = {
             \ 'z': 45,
             \ }
 
-" Removed the tagbar message. It's rarely useful but often obscures the
-" file name (which is obviously more important)
-let g:airline_section_x = '%{airline#util#wrap(airline#parts#filetype(),0)}'
-
 let g:airline#extensions#hunks#non_zero_only = 1
+let g:airline#extensions#tagbar#enabled = 1
+let g:airline#extensions#tagbar#flags = 'f'
+let g:airline#parts#ffenc#skip_expected_string='utf-8[unix]'
+let g:airline#extensions#ale#enabled = 0
+let g:airline_section_z = '%3l%#__accent_bold#/%L%{g:airline_symbols.maxlinenr}%#__restore__# :%3v'
 "}}}
 " Solarized colorscheme {{{
 " ================================================================
