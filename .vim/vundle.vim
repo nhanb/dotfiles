@@ -28,6 +28,7 @@ Bundle 'honza/vim-snippets'
 Bundle 'pearofducks/ansible-vim'
 Bundle 'mustache/vim-mustache-handlebars'
 Bundle 'chrisbra/csv.vim'
+Bundle 'zah/nim.vim'
 " }}}
 "
 " localvimrc - Project-specific vimrc {{{
