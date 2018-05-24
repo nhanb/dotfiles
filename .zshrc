@@ -1,7 +1,7 @@
 # Obligatory oh-my-zsh setup
 ZSH=$HOME/.oh-my-zsh
 ZSH_THEME="nhanb"
-plugins=(git virtualenv)
+plugins=(git virtualenv docker)
 source $ZSH/oh-my-zsh.sh
 
 if [ -f $HOME/dotfiles/globalrc ]; then
@@ -55,6 +55,8 @@ actvenv() {
 }
 
 export PATH=$PATH:$HOME/.rvm/bin
+[ -f /etc/profile.d/rvm.sh ] && source /etc/profile.d/rvm.sh
+
 [ -f /home/nhanb/.travis/travis.sh ] && source /home/nhanb/.travis/travis.sh
 export PATH=$PATH:$HOME/.cabal/bin
 
@@ -103,3 +105,73 @@ export PATH="$PATH:$HOME/.local/bin"
 alias peactivate='source `pipenv --venv`/bin/activate'
 alias perun='pipenv run'
 alias pepy='pipenv run python'
+
+# Pyenv
+export PATH="/home/nhanb/.pyenv/bin:$PATH"
+eval "$(pyenv init -)"
+eval "$(pyenv virtualenv-init -)"
+
+
+##############################
+# Parcel Perform:
+##############################
+
+ppsu () {
+    if [ -z "$1" ]; then
+        container="parcelperform_${PWD##*/}_1"
+    else
+        container=parcelperform_pp_"$1"_1
+    fi
+    docker exec -it $container su $2
+}
+ppshell () {
+    ppsu "$1" '-c ./manage.py shell'
+}
+pprestart () {
+    docker restart parcelperform_pp_"$1"_1
+}
+ppbuildjs () {
+    docker exec -it parcelperform_pp_"$1"_1 ./dockerbuild/bundle_js.sh
+}
+
+# First run only. Subsequently you can just `docker start <container_name>`
+pprun () {
+    docker run -d --name pp_"$1"_dev --env-file=./env_files/local_pp.env -v $PWD:/srv/pp_"$1" -v $PWD/../logs:/srv/logs parcelperform/pp_"$1":master
+}
+pp-scraper-start () {
+    docker run -d --name pp_scraper_dev\
+        --env-file=./env_files/local_pp.env\
+        -v $PWD:/srv/pp_scraper\
+        -v $PWD/../logs:/srv/logs\
+        parcelperform/pp_scraper:master
+}
+pp-scraper-test () {
+    docker exec -it parcelperform_pp_hp_scraper_1 python -m unittest tests.test_scrapers."$1"
+}
+ppdev() {
+    docker exec -it pp_"$1"_dev su $2
+}
+
+ppup() {
+    cd ~/parcel/parcel-perform
+    docker-compose -f docker-compose-infra.yml up -d
+    sleep 1m
+    docker-compose up -d
+    docker ps
+}
+
+ppstop() {
+    cd ~/parcel/parcel-perform
+    docker-compose stop
+    sleep 5s
+    docker-compose -f docker-compose-infra.yml stop
+    docker ps
+}
+
+ppactivate() {
+    pyenv activate ${PWD##*/}
+}
+
+ppkill() {
+    docker exec -it "parcelperform_${PWD##*/}_1" su '-c killall -9 python'
+}
